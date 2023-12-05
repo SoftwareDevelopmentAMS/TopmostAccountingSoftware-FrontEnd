@@ -19,21 +19,21 @@ const SignUp = ({ data }) => {
       // Validate email format
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!values.email) {
-        errors.email = "Required";
+        errors.email = "Email is Required";
       } else if (!emailRegex.test(values.email)) {
         errors.email = "Invalid email format";
       }
 
       // Validate password
       if (!values.password) {
-        errors.password = "Required";
+        errors.password = "Password is Required";
       } else if (values.password.length < 5) {
         errors.password = "Password must be at least 5 characters";
       }
 
       // Validate branch selection
       if (!values.branch) {
-        errors.branch = "Required";
+        errors.branch = "Must Select Branch";
       }
 
       return errors;
