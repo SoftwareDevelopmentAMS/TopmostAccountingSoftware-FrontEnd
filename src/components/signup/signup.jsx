@@ -88,7 +88,7 @@ const SignUp = ({ data }) => {
             value={formik.values.branch}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className="w-full box-border border py-2 px-4 rounded-3xl "
+            className="w-full box-border border py-2 px-4 rounded-lg "
             id="branch"
             name="branch"
             
