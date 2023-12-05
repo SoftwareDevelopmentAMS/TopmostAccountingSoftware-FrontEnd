@@ -10,13 +10,21 @@ const SignIn = () => {
     },
     validate: (values) => {
       const errors = {};
-      if (!values.email) {
-        errors.email = "Required";
-      }
-      if (!values.password) {
-        errors.password = "Required";
-      }
+     // Validate email format
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (!values.email) {
+       errors.email = 'Required';
+     } else if (!emailRegex.test(values.email)) {
+       errors.email = 'Invalid email format';
+     }
       
+     // Validate password
+     if (!values.password) {
+      errors.password = 'Required';
+    } else if (values.password.length < 5) {
+      errors.password = 'Password must be at least 5 characters';
+    }
+
       return errors;
     },
     onSubmit: (values) => {
@@ -30,18 +38,18 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F3E9E5]">
+    <div className="h-full flex items-center justify-center ">
       <div className="max-w-md w-full mx-4 bg-white p-8 rounded-2xl shadow-2xl">
         <h1 className="text-center uppercase font-Inter text-3xl font-bold mb-6">
           Sign In
         </h1>
-        <p className="text-[22px] text-center max-w-xs m-auto font-semibold text-black mb-6">
+        <p className="text-base md:text-[22px] text-center max-w-xs m-auto font-semibold text-black mb-6">
           Hey, enter your details to log in to your account
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <input
             type="text"
-            className="w-full border py-2 px-4 rounded-md"
+            className="w-full border py-2 px-4 rounded-md outline-none"
             placeholder="Enter Email / Phone No"
             id="email"
             name="email"
@@ -56,7 +64,7 @@ const SignIn = () => {
           <div className="relative">
             <input
               type={formik.values.passwordVisible ? "text" : "password"}
-              className="w-full border py-2 px-4 rounded-md pr-10"
+              className="w-full border py-2 px-4 rounded-md pr-10 outline-none"
               placeholder="Password"
               id="password"
               name="password"

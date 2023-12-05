@@ -2,6 +2,8 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 
+let Branchs = ["KALAMASSERY", "VEDIMARA", "NORTH PARAVOOR"];
+
 const SignUp = ({ data }) => {
   const formik = useFormik({
     initialValues: {
@@ -11,11 +13,19 @@ const SignUp = ({ data }) => {
     },
     validate: (values) => {
       const errors = {};
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!values.email) {
         errors.email = "Required";
+      } else if (!emailRegex.test(values.email)) {
+        errors.email = "Invalid email format";
       }
+
+      // Validate password
       if (!values.password) {
         errors.password = "Required";
+      } else if (values.password.length < 5) {
+        errors.password = "Password must be at least 5 characters";
       }
       if (!values.branch) {
         errors.branch = "Required";
@@ -33,18 +43,18 @@ const SignUp = ({ data }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F3E9E5]">
+    <div className="h-full flex items-center justify-center">
       <div className="max-w-md w-full mx-4 bg-white p-8 rounded-2xl shadow-2xl">
         <h1 className="text-center uppercase font-Inter text-3xl font-bold mb-6">
-          Sign In
+          Sign Up
         </h1>
-        <p className="text-[22px] text-center max-w-xs m-auto font-semibold text-black mb-6">
-          Hey, enter your details to log in to your account
+        <p className="text-base md:text-[22px] text-center max-w-xs m-auto font-semibold text-black mb-6">
+        Enter your details to register to your account
         </p>
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <input
             type="text"
-            className="w-full border py-2 px-4 rounded-md"
+            className="w-full border py-2 px-4 rounded-md  outline-none"
             placeholder="Enter Email / Phone No"
             id="email"
             name="email"
@@ -59,7 +69,7 @@ const SignUp = ({ data }) => {
           <div className="relative">
             <input
               type={formik.values.passwordVisible ? "text" : "password"}
-              className="w-full border py-2 px-4 rounded-md pr-10"
+              className="w-full border py-2 px-4 rounded-md pr-10 outline-none"
               placeholder="Password"
               id="password"
               name="password"
@@ -91,14 +101,15 @@ const SignUp = ({ data }) => {
             className="w-full box-border border py-2 px-4 rounded-lg "
             id="branch"
             name="branch"
-            
           >
             <option value="" disabled>
               Select Branch
             </option>
-            <option value="branch1">Branch 1</option>
-            <option value="branch2">Branch 2</option>
-            <option value="branch3">Branch 3</option>
+            {Branchs.map((Branch, i) => (
+              <option value={Branch} key={i + Branch}>
+                {Branch}
+              </option>
+            ))}
           </select>
           {formik.errors.branch && formik.touched.branch && (
             <div className="text-red-500 text-sm">{formik.errors.branch}</div>
@@ -113,7 +124,9 @@ const SignUp = ({ data }) => {
         </form>
         <p className="text-xs py-4 text-center px-4">
           Already have an account?{" "}
-          <Link to={'/'}><span className="hover:cursor-pointer font-bold"> - Login Now</span></Link>
+          <Link to={"/"}>
+            <span className="hover:cursor-pointer font-bold"> - Login Now</span>
+          </Link>
         </p>
       </div>
     </div>
