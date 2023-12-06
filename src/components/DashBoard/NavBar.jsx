@@ -3,7 +3,7 @@ import Profile from "../../assets/DashBoard/NavBar/Account.png"
 import ProfileInfo from "./ProfileInfo";
 const NavBar = () => {
   return (
-    <div className="h-[4.5rem] border bg-[#F1F2F7] w-full ">
+    <div className="h-[4.5rem] border  bg-[#F1F2F7] w-full ">
       <div className="flex h-full w-full items-center justify-around">
         <div className="flex  items-center gap-4  ">
           <img src={Logo} alt="TOPMOST ACCOUNTS" className="h-3/4" />
