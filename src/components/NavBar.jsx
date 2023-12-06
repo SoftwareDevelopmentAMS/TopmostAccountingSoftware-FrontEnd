@@ -14,7 +14,7 @@ const NavBar = ({signup}) => {
         <div className="">
           <div className="flex gap-2 w-full">
             <img src={Glob} alt="SignUp"/>
-            <Link to={!signup ? '/signup' : '/'}><h1 className="uppercase font-Inter font-normal ">{!signup ? "Sign up" : "sign in"}</h1></Link>
+            <Link to={!signup ? '/signup' : '/login'}><h1 className="uppercase font-Inter font-normal ">{!signup ? "Sign up" : "sign in"}</h1></Link>
           </div>
         </div>
       </div>

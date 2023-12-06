@@ -140,7 +140,7 @@ const SignUp = ({ data }) => {
         {/* Login link */}
         <p className="text-xs py-4 text-center px-4">
           Already have an account?{" "}
-          <Link to={"/"}>
+          <Link to={"/login"}>
             <span className="hover:cursor-pointer font-bold"> - Login Now</span>
           </Link>
         </p>
