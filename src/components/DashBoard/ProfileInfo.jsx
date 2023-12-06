@@ -21,8 +21,9 @@ const ProfileInfo = ({ Profile, Name, Data }) => {
           alt="user photo"
         />
         <h1 className="text-[#1F384C] text-lg hidden xs1:inline  font-Poppins font-normal">{Name}</h1>
+        <div className="sm:ms-3 p-1 h-full rounded-md bg-white ">
         <svg
-          className="w-3 h-3 sm:ms-3 "
+          className="w-3 h-3  "
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -34,8 +35,10 @@ const ProfileInfo = ({ Profile, Name, Data }) => {
             strokeLinejoin="round"
             strokeWidth="2"
             d="m1 1 4 4 4-4"
+            
           />
         </svg>
+        </div>
       </button>
 
       {/* Dropdown menu */}
