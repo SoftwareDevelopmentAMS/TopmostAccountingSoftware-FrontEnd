@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -79,11 +80,11 @@ const LeftSidebar = () => {
   };
 
   return (
-    <div className="flex min-h-screen relative">
+    <div className="flex min-h-screen  relative">
       {/* Sidebar */}
       <div
-        className={`w-64 bg-[#F1F2F7] shadow-md transition-transform transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-3/4"
+        className={` bg-[#F1F2F7] shadow-md transition-all transform duration-500 ${
+          isSidebarOpen ? "w-64" : "w-16"
         }`}
       >
         {/* Toggle Button */}
@@ -91,89 +92,125 @@ const LeftSidebar = () => {
           className="fixed top-2 right-0 text-black rounded-full focus:outline-none"
           onClick={handleToggleSidebar}
         >
-          {isSidebarOpen ? (
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isSidebarOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+
+          {/* {isSidebarOpen ? (
             <FontAwesomeIcon icon={faChevronLeft} />
           ) : (
             <FontAwesomeIcon icon={faChevronRight} />
-          )}
+          )} */}
         </button>
         <div className="px-2 mt-10  flex flex-col justify-end border-b-2">
-         <div className="flex flex-col justify-end items-center">
-         <p className={`text-md mb-2 text-[#082431] w-full opacity-50 ${isSidebarOpen ? 'text-left' : 'text-right'} font-semibold uppercase`}>
-            Menu
-          </p>
-
-          {MenuList.map((list, i) => (
-            <div
-              key={i}
-              className={`group flex w-full h-full items-center ${
-                isSidebarOpen ? "justify-start p-3 gap-2 hover:bg-[#EE720333] hover:text-[#EE7203]" : "justify-end gap-2 my-2"
-              }  rounded-lg   m-1   hover:cursor-pointer`}
+          <div className="flex flex-col justify-center items-center">
+            <p
+              className={`text-md mb-2 text-[#082431] w-full opacity-50 ${
+                isSidebarOpen ? "text-left" : "text-right"
+              } font-semibold uppercase`}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 h-10 w-10"
-              >
-                {list.icon}
-              </svg>
-              <h1
-                className={
+              Menu
+            </p>
+
+            {MenuList.map((list, i) => (
+              <div
+                key={i}
+                className={`group flex w-full h-full items-center ${
                   isSidebarOpen
-                    ? `font-Poppins font-medium fill-[#082431] opacity-50 group-hover:opacity-100`
-                    : `hidden`
-                }
+                    ? "justify-start p-3 gap-2 hover:bg-[#EE720333] hover:text-[#EE7203]"
+                    : "justify-center gap-2 my-2"
+                }  rounded-lg m-1  hover:cursor-pointer`}
               >
-                {list.name}
-              </h1>
-            </div>
-          ))}
-         </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 group-hover:scale-150  h-6 w-6 transition-all  ease-in-out duration-300 "
+                >
+                  {list.icon}
+                </svg>
+                <h1
+                  className={
+                    isSidebarOpen
+                      ? `font-Poppins font-medium fill-[#082431] opacity-50 group-hover:opacity-100`
+                      : `hidden`
+                  }
+                >
+                  {list.name}
+                </h1>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="px-2 mt-10  flex flex-col justify-end ">
-         <div className="flex flex-col justify-end items-center">
-         <p className={`text-md tracking-tighter mb-4 text-[#082431] w-full opacity-50 ${isSidebarOpen ? 'text-left pl-5' : 'text-right'} font-semibold uppercase`}>
-            Others
-          </p>
-
-          {OthersList.map((list, i) => (
-            <div
-              key={i}
-              className={`group flex w-full h-full items-center ${
-                isSidebarOpen ? "justify-start pl-10 p-3 gap-2 hover:bg-[#EE720333] hover:text-[#EE7203]" : "justify-end gap-2 my-2"
-              }  rounded-lg  m-1   hover:cursor-pointer`}
+          <div className="flex flex-col justify-end items-center">
+            <p
+              className={`text-md tracking-tighter mb-4 text-[#082431] w-full opacity-50 ${
+                isSidebarOpen ? "text-left pl-5" : "text-right"
+              } font-semibold uppercase`}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 h-10 w-10"
-              >
-                {list.icon}
-              </svg>
-              <h1
-                className={
-                  isSidebarOpen
-                    ? `font-Poppins font-medium fill-[#082431] opacity-50 group-hover:opacity-100`
-                    : `hidden`
-                }
-              >
-                {list.name}
-              </h1>
-            </div>
-          ))}
-         </div>
-        </div>
-       
-      </div>
+              Others
+            </p>
 
-      
+            {OthersList.map((list, i) => (
+              <div
+                key={i}
+                className={`group flex w-full h-full items-center ${
+                  isSidebarOpen
+                    ? "justify-start pl-10 p-3 gap-2 hover:bg-[#EE720333] hover:text-[#EE7203]"
+                    : "justify-center gap-2 my-2"
+                }  rounded-lg  m-1   hover:cursor-pointer`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                >
+                  {list.icon}
+                </svg>
+                <h1
+                  className={
+                    isSidebarOpen
+                      ? `font-Poppins font-medium fill-[#082431] opacity-50 group-hover:opacity-100`
+                      : `hidden`
+                  }
+                >
+                  {list.name}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className={`flex-1 transition-all  ease-in-out duration-500`}>
+        {/* Content Area Content */}
+        adfasads
+      </div>
     </div>
   );
 };
