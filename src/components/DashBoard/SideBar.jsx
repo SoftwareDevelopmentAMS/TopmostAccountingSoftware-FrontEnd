@@ -1,14 +1,12 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 
 const MenuList = [
   {
     name: "Patient Invoice ",
+    link:"patient-invoice",
     icon: (
       <path
         fillRule="evenodd"
@@ -19,6 +17,7 @@ const MenuList = [
   },
   {
     name: "Purchase Invoice",
+    link:"purchase-invoice",
     icon: (
       <path
         fillRule="evenodd"
@@ -28,7 +27,8 @@ const MenuList = [
     ),
   },
   {
-    name: "List of Invoice",
+    name: "List of Invoice",    
+    link:"List-invoice",
     icon: (
       <path
         fillRule="evenodd"
@@ -42,6 +42,7 @@ const MenuList = [
 const OthersList = [
   {
     name: "Settings ",
+    link:"add-option",
     icon: (
       <path
         fillRule="evenodd"
@@ -52,6 +53,7 @@ const OthersList = [
   },
   {
     name: "Accounts",
+    link:"accounts",
     icon: (
       <path
         fillRule="evenodd"
@@ -62,6 +64,7 @@ const OthersList = [
   },
   {
     name: "Help",
+    link:"help",
     icon: (
       <path
         fillRule="evenodd"
@@ -73,7 +76,8 @@ const OthersList = [
 ];
 
 const LeftSidebar = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate()
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
@@ -114,12 +118,6 @@ const LeftSidebar = () => {
               />
             )}
           </svg>
-
-          {/* {isSidebarOpen ? (
-            <FontAwesomeIcon icon={faChevronLeft} />
-          ) : (
-            <FontAwesomeIcon icon={faChevronRight} />
-          )} */}
         </button>
         <div className="px-2 mt-10  flex flex-col justify-end border-b-2">
           <div className="flex flex-col justify-center items-center">
@@ -132,7 +130,10 @@ const LeftSidebar = () => {
             </p>
 
             {MenuList.map((list, i) => (
-              <div
+              <div 
+              onClick={()=>{
+                navigate(list.link)
+              }}
                 key={i}
                 className={`group flex w-full h-full items-center ${
                   isSidebarOpen
@@ -160,6 +161,7 @@ const LeftSidebar = () => {
                   {list.name}
                 </h1>
               </div>
+               
             ))}
           </div>
         </div>
@@ -175,7 +177,10 @@ const LeftSidebar = () => {
             </p>
 
             {OthersList.map((list, i) => (
-              <div
+               <div
+               onClick={()=>{
+                navigate(list.link)
+              }}
                 key={i}
                 className={`group flex w-full h-full items-center ${
                   isSidebarOpen
@@ -202,14 +207,15 @@ const LeftSidebar = () => {
                 >
                   {list.name}
                 </h1>
-              </div>
+              </div> 
             ))}
           </div>
         </div>
       </div>
-      <div className={`flex-1 transition-all  ease-in-out duration-500`}>
+      <div className={` bg-[#F5F7FF] w-full flex-1 transition-all  ease-in-out duration-500`}>
         {/* Content Area Content */}
-        adfasads
+       <Outlet/>
+
       </div>
     </div>
   );
