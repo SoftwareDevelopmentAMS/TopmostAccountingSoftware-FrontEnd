@@ -29,7 +29,7 @@ function App() {
           />
           <Route index element={<PatientInvoice />} />
           <Route path="patient-invoice" element={<PatientInvoice />} />
-          <Route path="add-option" element={<AddOptions />} />
+          <Route path="add-on" element={<AddOptions />} />
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />
           <Route path="Tables" element={<ListofOptions />} />
           <Route
