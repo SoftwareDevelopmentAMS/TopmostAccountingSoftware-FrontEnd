@@ -52,8 +52,8 @@ const PurchaseForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <Grid container spacing={2}>
+    <form onSubmit={formik.handleSubmit} className="w-full mx-auto p-4">
+      <Grid container spacing={2} justifyContent="center">
         {formFields.map((field) => (
           <Grid item xs={12} md={6} lg={4} key={field.name}>
             {field.type === 'dropdown' ? (
