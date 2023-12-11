@@ -33,10 +33,10 @@ function App() {
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />
           <Route path="Tables" element={<ListofOptions />} />
           <Route
-            path="List-invoice"
+            path="settings"
             element={
               <div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
-                List of Invoice{" "}
+                Settings{" "}
               </div>
             }
           />
