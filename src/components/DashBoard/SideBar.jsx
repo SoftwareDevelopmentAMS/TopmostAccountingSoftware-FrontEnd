@@ -54,7 +54,7 @@ const MenuList = [
 const OthersList = [
   {
     name: "Settings ",
-    link:"add-option",
+    link:"settings",
     icon: (
       <path
         fillRule="evenodd"
