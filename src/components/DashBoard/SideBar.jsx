@@ -27,8 +27,8 @@ const MenuList = [
     ),
   },
   {
-    name: "List of Invoice",    
-    link:"List-invoice",
+    name: "add-ons Form",    
+    link:"add-on",
     icon: (
       <path
         fillRule="evenodd"

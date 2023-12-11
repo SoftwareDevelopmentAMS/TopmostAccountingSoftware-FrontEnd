@@ -14,7 +14,7 @@ const ProfileInfo = ({ Profile, Name, Data }) => {
         type="button"
         onClick={handleDropdownToggle}
       >
-        <span className="sr-only">Open user menu</span>
+        {/* <span className="sr-only">Open user menu</span> */}
         <img
           className="w-10  h-10 me-2 rounded-full object-contain hover:scale-125  transition-all  ease-in-out duration-500"
           src={Profile}
