@@ -86,7 +86,6 @@ const ListofOptions = () => {
   };
   return (
     <div className="m-auto w-auto">
-      <h2 className="text-xl font-Inter text-center font-bold uppercase tracking-normal">Patient Invoice</h2>
       <div className="topbar m-5 p-4 bg-white flex flex-wrap justify-center">
         {tableData.map((item, i) => (
           <button
