@@ -4,10 +4,10 @@ import InitialSignUp from "./Pages/InitialSignUp";
 import UserLogin from "./Pages/userLogin";
 import UserRegister from "./Pages/userRegister";
 import HomePage from "./Pages/HomePage";
-import AddOptions from "./components/DashBoard/AddOptions";
-import PatientInvoice from "./components/DashBoard/PatientInvoice";
-import PurchaseInvoice from "./components/DashBoard/PurchaseInvoice";
-import ListofOptions from "./components/DashBoard/ListofOptions";
+import AddOptions from "./Pages/Add-on";
+import PatientInvoice from "./Pages/PatientInvoice";
+import PurchaseInvoice from "./Pages/PurchaseInvoice";
+import ListofOptions from "./Pages/Add-on-list";
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
         <Route path="/user-register" element={<UserRegister />} />
         <Route path="/user-login" element={<UserLogin />} />
         <Route path="/signup" element={<InitialSignUp />} />
-        {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
         <Route path="/" element={<HomePage />}>
           <Route
             index
@@ -27,11 +26,13 @@ function App() {
               </div>
             }
           />
-          <Route index element={<PatientInvoice />} />
+           
           <Route path="patient-invoice" element={<PatientInvoice />} />
-          <Route path="add-on" element={<AddOptions />} />
+          <Route path="Patient-Invoice-list" element={<ListofOptions />} />
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />
-          <Route path="Tables" element={<ListofOptions />} />
+          <Route path="purchase-Invoice-list" element={<ListofOptions />} />
+          <Route path="add-on" element={<AddOptions />} />
+          <Route path="add-on-list" element={<ListofOptions />} />
           <Route
             path="settings"
             element={
@@ -40,10 +41,26 @@ function App() {
               </div>
             }
           />
-          <Route path="accounts" element={<div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
+          <Route
+            path="accounts"
+            element={
+              <div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
+                accounts{" "}
+              </div>
+            }
+          />
+          <Route
+            path="help"
+            element={
+              <div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
+                help{" "}
+              </div>
+            }
+          />
+          <Route path="patient-table" element={<div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
                 Accounts{" "}
               </div>} />
-          <Route path="help" element={<div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
+          <Route path="purchase-table" element={<div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
                 Support{" "}
               </div>} />
         </Route>
