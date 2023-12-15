@@ -12,8 +12,12 @@
   }
 
   @media print {
-    body * {
+    body *  {
       visibility: hidden;
+    }
+
+    #selectcolumn * {
+      display: none !important;
     }
   
     #print-table,
