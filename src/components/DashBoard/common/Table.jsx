@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 
+
+
 function TablePaginationActions(props) {
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -69,8 +71,11 @@ function CustomTable({ columns, data, rowsPerPageOptions = [5, 10, 25, -1] }) {
     setPage(0);
   };
 
+  
+
   return (
     <div className="container mx-auto mt-4">
+      <input type="date" />
       <table className="min-w-full border bg-white">
         <thead>
           <tr>
@@ -118,8 +123,6 @@ function CustomTable({ columns, data, rowsPerPageOptions = [5, 10, 25, -1] }) {
                   </select>
                   {' rows per page'}
                 </div>
-                {/* Assuming TablePaginationActions is a component that handles pagination */}
-                {/* You might need to replace this component with your own implementation */}
                 <TablePaginationActions
                   count={data?.length}
                   page={page}
