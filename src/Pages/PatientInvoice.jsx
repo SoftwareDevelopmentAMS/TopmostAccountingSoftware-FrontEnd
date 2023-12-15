@@ -2,7 +2,7 @@ import Patient_Invoice from "../components/DashBoard/PatientInvoice"
 const PatientInvoice = () => {
   return (
     <>
-      <Patient_Invoice/>
+      <Patient_Invoice />
     </>
   )
 }

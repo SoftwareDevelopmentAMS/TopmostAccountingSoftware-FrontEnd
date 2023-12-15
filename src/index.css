@@ -10,3 +10,21 @@
     &::-webkit-scrollbar {
        width:8px;}
   }
+
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    #print-table,
+    #print-table * {
+      visibility: visible;
+    }
+  
+    #print-table {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+

@@ -13,6 +13,7 @@ const HomePage = () => {
     
 
 <div className="dark:bg-boxdark-2 dark:text-bodydark">
+         
       {/* <!-- ===== Page Wrapper Start ===== --> */}
       <div className="flex  h-screen overflow-hidden">
         {/* <!-- ===== Sidebar Start ===== --> */}
@@ -20,14 +21,14 @@ const HomePage = () => {
         {/* <!-- ===== Sidebar End ===== --> */}
 
         {/* <!-- ===== Content Area Start ===== --> */}
-        <div className="relative flex flex-1 flex-col ">
+        <div className="w-full bg-[#F1F2F7]">
           {/* <!-- ===== Header Start ===== --> */}
-          <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar}/>
           {/* <!-- ===== Header End ===== --> */}
+           <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar}/>
 
           {/* <!-- ===== Main Content Start ===== --> */}
           <main>
-            <div className="mx-auto h-[calc(100vh-2rem)] max-w-screen-2xl  overflow-y-auto   ">
+            <div className={`${isSidebarOpen ? "max-w-[calc(100vw-16rem)]" : "max-w-[calc(100vw-7rem)]"} mx-auto h-[calc(100vh-2rem)] w-full overflow-y-auto bg-[#F1F2F7]  `}>
               <Outlet />
             </div>
           </main>

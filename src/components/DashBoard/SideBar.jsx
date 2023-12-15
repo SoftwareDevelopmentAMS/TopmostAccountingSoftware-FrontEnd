@@ -226,7 +226,7 @@ export default function MultiLevelSidebar({
   return (
     <div>
       <Card
-        className={`h-[calc(100vh)]   bg-[#F1F2F7]  max-w-[20rem] p-4   shadow-blue-gray-900/5  shadow-md transition-all transform duration-500 ${
+        className={`h-[calc(100vh)]  bg-[#F1F2F7]  max-w-[20rem] p-4   border transition-all transform duration-500 ${
           isSidebarOpen ? "w-64" : "w-28"
         }`}
       >
@@ -272,20 +272,21 @@ export default function MultiLevelSidebar({
             {MenuList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                  key={"list" + i+1}
+                className=" rounded-xl "
+                  key={list.name +i}
                   open={menuOpen === i + 1}
                   icon={
                     <ChevronDownIcon
                       strokeWidth={2.5}
-                      className={`mx-auto h-4 w-4 ${
+                      className={` h-4 w-4 ${
                         !isSidebarOpen && "hidden"
                       } transition-transform ${
                         menuOpen === i + 1 ? "rotate-180" : ""
-                      }`}
+                      } `}
                     />
                   }
                 >
-                  <ListItem className="p-0" selected={menuOpen === i + 1}>
+                  <ListItem className="p-0 group " selected={menuOpen === i + 1}>
                     <AccordionHeader
                       onClick={() => {
                         !isSidebarOpen && handleToggleSidebar();
@@ -301,7 +302,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-[#082431] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -321,7 +322,7 @@ export default function MultiLevelSidebar({
                     <List className="p-0">
                       {list.dropdowns.map((list, i) => (
                         <Link to={list.link} key={list.name + i}>
-                          <ListItem>
+                          <ListItem className="group">
                             <ListItemPrefix>
                               <ChevronRightIcon
                                 strokeWidth={3}
@@ -332,7 +333,7 @@ export default function MultiLevelSidebar({
                             </ListItemPrefix>
                             <Typography
                               color="blue-gray"
-                              className={`mr-auto font-normal ${
+                              className={`   ${
                                 isSidebarOpen ? "" : "hidden"
                               } `}
                             >
@@ -345,8 +346,8 @@ export default function MultiLevelSidebar({
                   </AccordionBody>
                 </Accordion>
               ) : (
-                <Link to={list.link}>
-                  <ListItem key={"list.name" + i}>
+                <Link to={list.link} key={list.name}>
+                  <ListItem   className="group">
                     <ListItemPrefix>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -464,8 +465,8 @@ export default function MultiLevelSidebar({
                   </AccordionBody>
                 </Accordion>
               ) : (
-                <Link to={list.link}>
-                  <ListItem key={list.name + i}>
+                <Link to={list.link}  key={list.name + i}>
+                  <ListItem >
                     <ListItemPrefix>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

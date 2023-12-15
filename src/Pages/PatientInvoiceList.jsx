@@ -1,8 +1,8 @@
-import PatientInvoice from "../components/DashBoard/PatientInvoice"
+import PatientinvoiceList from "../components/DashBoard/PatientInvoiceList"
 const PatientInvoiceList = () => {
   return (
     <>
-    <PatientInvoice/>
+    <PatientinvoiceList/>
       
     </>
   )

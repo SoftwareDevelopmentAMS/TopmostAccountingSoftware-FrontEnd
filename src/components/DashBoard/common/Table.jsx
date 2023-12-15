@@ -123,8 +123,6 @@ function CustomTable({ columns, data, rowsPerPageOptions = [5, 10, 25, -1] }) {
                   </select>
                   {' rows per page'}
                 </div>
-                {/* Assuming TablePaginationActions is a component that handles pagination */}
-                {/* You might need to replace this component with your own implementation */}
                 <TablePaginationActions
                   count={data?.length}
                   page={page}
