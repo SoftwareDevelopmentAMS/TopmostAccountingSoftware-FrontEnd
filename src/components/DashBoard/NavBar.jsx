@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
-// import { Link } from "react-router-dom";
 import Profile from "../../assets/DashBoard/NavBar/Account.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileInfo from "./ProfileInfo";   
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 const NavBar = ({handleToggleSidebar,isSidebarOpen}) => {
   return (
     <div className={`${isSidebarOpen ? "max-w-[calc(100vw-16rem)]" : "max-w-[calc(100vw-7rem)]"}     border  bg-[#F1F2F7] w-full relative `}>
-       <div className="absolute top-5 left-4 "  onClick={handleToggleSidebar}>
-        {isSidebarOpen ? "close" : "open"}  
+       <div className="absolute top-5 left-4 scale-150"  onClick={handleToggleSidebar}>        
+        <FontAwesomeIcon icon={isSidebarOpen ? faTimes : faBars} />
        </div>
        <div className="h-auto w-full flex justify-center  ">
           

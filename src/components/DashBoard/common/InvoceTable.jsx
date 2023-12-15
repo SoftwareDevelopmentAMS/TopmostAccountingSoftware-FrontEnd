@@ -163,7 +163,7 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
 
       {/* Modal for detailed view */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center">
+        <div id='selectcolumn' className="selectcolumn fixed inset-0 flex items-center justify-center">
           <div
             className="bg-black bg-opacity-50 absolute inset-0"
             onClick={() => {
