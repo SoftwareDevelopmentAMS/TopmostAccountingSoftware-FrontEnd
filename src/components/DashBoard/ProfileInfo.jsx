@@ -20,7 +20,7 @@ const ProfileInfo = ({ Profile, Name, Data }) => {
           src={Profile}
           alt="user photo"
         />
-        <h1 className="text-[#1F384C] text-lg hidden xs1:inline  font-Poppins font-normal">{Name}</h1>
+        <h1 className="text-[#1F384C] text-lg hidden  sm:inline  font-Poppins font-normal">{Name}</h1>
         <div className="sm:ms-3 p-1 h-full rounded-md bg-white ">
         <svg
           className="w-3 h-3  "

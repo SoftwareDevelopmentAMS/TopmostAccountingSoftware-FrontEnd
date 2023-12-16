@@ -104,6 +104,40 @@ const MenuList = [
     ],
   },
   {
+    name: "Doctors",
+    icon: (
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.97047 4.46829C9.97047 6.67106 8.2043 8.43733 5.99998 8.43733C3.7964 8.43733 2.02949 6.67106 2.02949 4.46829C2.02949 2.26552 3.7964 0.5 5.99998 0.5C8.2043 0.5 9.97047 2.26552 9.97047 4.46829ZM6 15.5C2.74678 15.5 0 14.9712 0 12.9312C0 10.8904 2.76404 10.3804 6 10.3804C9.25397 10.3804 12 10.9092 12 12.9492C12 14.99 9.23596 15.5 6 15.5Z"
+      />
+    ),
+    dropdowns: [
+      {
+        name: "Add-Doctors",
+        link: "Add-Doc",
+        icon: (
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M9.97047 4.46829C9.97047 6.67106 8.2043 8.43733 5.99998 8.43733C3.7964 8.43733 2.02949 6.67106 2.02949 4.46829C2.02949 2.26552 3.7964 0.5 5.99998 0.5C8.2043 0.5 9.97047 2.26552 9.97047 4.46829ZM6 15.5C2.74678 15.5 0 14.9712 0 12.9312C0 10.8904 2.76404 10.3804 6 10.3804C9.25397 10.3804 12 10.9092 12 12.9492C12 14.99 9.23596 15.5 6 15.5Z"
+          />
+        ),
+      },
+      {
+        name: "Doctors",
+        link: "Doctors-list",
+        icon: (
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M9.97047 4.46829C9.97047 6.67106 8.2043 8.43733 5.99998 8.43733C3.7964 8.43733 2.02949 6.67106 2.02949 4.46829C2.02949 2.26552 3.7964 0.5 5.99998 0.5C8.2043 0.5 9.97047 2.26552 9.97047 4.46829ZM6 15.5C2.74678 15.5 0 14.9712 0 12.9312C0 10.8904 2.76404 10.3804 6 10.3804C9.25397 10.3804 12 10.9092 12 12.9492C12 14.99 9.23596 15.5 6 15.5Z"
+          />
+        ),
+      },
+    ],
+  },
+  {
     name: "Add-on",
     icon: (
       <path
@@ -210,14 +244,26 @@ export default function MultiLevelSidebar({
     setMenuOpen(menuOpen === value ? 0 : value);
   };
 
- 
-
-  useEffect(()=>{
-    if(!isSidebarOpen){
-      setMenuOpen(0);
-    setOthersOpen(0);
+  const checkWindowSize = () => {
+    if (window.innerWidth < 660) {
+      handleToggleSidebar(false);
     }
-  },[isSidebarOpen])
+  };
+
+  useEffect(() => {
+    checkWindowSize();
+    window.addEventListener("resize", checkWindowSize);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener("resize", checkWindowSize);
+  }, []);
+
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      setMenuOpen(0);
+      setOthersOpen(0);
+    }
+  }, [isSidebarOpen]);
 
   const handleOthersOpen = (value) => {
     setOthersOpen(othersOpen === value ? 0 : value);
@@ -226,8 +272,8 @@ export default function MultiLevelSidebar({
   return (
     <div>
       <Card
-        className={`h-[calc(100vh)]  bg-[#F1F2F7]  max-w-[20rem] p-4   border transition-all transform duration-500 ${
-          isSidebarOpen ? "w-64" : "w-28"
+        className={`h-[calc(100vh)]  bg-[#F1F2F7]  max-w-[20rem]   border transition-all transform duration-500 ${
+          isSidebarOpen ? "w-64 py-4" : "w-28 p-4"
         }`}
       >
         <div className="h-auto w-full flex justify-center  ">
@@ -252,7 +298,7 @@ export default function MultiLevelSidebar({
           </Link>
         </div>
         <div className="scrollingstyle overflow-y-auto ">
-          <div className={`${isSidebarOpen && ""}  mt-10`}>
+          <div className={`${isSidebarOpen && "pl-5"}   mt-10`}>
             <Typography
               variant="h5"
               color="blue-gray"
@@ -272,8 +318,8 @@ export default function MultiLevelSidebar({
             {MenuList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                className=" rounded-xl "
-                  key={list.name +i}
+                  className={` rounded-xl `}
+                  key={list.name + i}
                   open={menuOpen === i + 1}
                   icon={
                     <ChevronDownIcon
@@ -286,7 +332,12 @@ export default function MultiLevelSidebar({
                     />
                   }
                 >
-                  <ListItem className="p-0 group " selected={menuOpen === i + 1}>
+                  <ListItem
+                    className={`p-0 group ${
+                      menuOpen === i + 1 ? "bg-slate-300 " : " "
+                    }`}
+                    selected={menuOpen === i + 1}
+                  >
                     <AccordionHeader
                       onClick={() => {
                         !isSidebarOpen && handleToggleSidebar();
@@ -311,7 +362,7 @@ export default function MultiLevelSidebar({
                         color="blue-gray"
                         className={`mr-auto font-normal ${
                           isSidebarOpen ? "" : "hidden"
-                        } `}
+                        } truncate`}
                       >
                         {list.name}
                       </Typography>
@@ -322,7 +373,7 @@ export default function MultiLevelSidebar({
                     <List className="p-0">
                       {list.dropdowns.map((list, i) => (
                         <Link to={list.link} key={list.name + i}>
-                          <ListItem className="group">
+                          <ListItem className={`group `}>
                             <ListItemPrefix>
                               <ChevronRightIcon
                                 strokeWidth={3}
@@ -333,9 +384,7 @@ export default function MultiLevelSidebar({
                             </ListItemPrefix>
                             <Typography
                               color="blue-gray"
-                              className={`   ${
-                                isSidebarOpen ? "" : "hidden"
-                              } `}
+                              className={`   ${isSidebarOpen ? "" : "hidden"} `}
                             >
                               {list.name}
                             </Typography>
@@ -347,76 +396,18 @@ export default function MultiLevelSidebar({
                 </Accordion>
               ) : (
                 <Link to={list.link} key={list.name}>
-                  <ListItem   className="group">
-                    <ListItemPrefix>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
-                      >
-                        {list.icon}
-                      </svg>
-                    </ListItemPrefix>
-                    <Typography
-                      color="blue-gray"
-                      className={`mr-auto font-normal ${
-                        isSidebarOpen ? "" : "hidden"
-                      } `}
-                    >
-                      {list.name}
-                    </Typography>
-                  </ListItem>
-                </Link>
-              );
-            })}
-          </List>
-
-          <div className={`${isSidebarOpen && ""}  mt-5`}>
-            <Typography
-              variant="h5"
-              color="blue-gray"
-              className={`${
-                !isSidebarOpen
-                  ? "uppercase text-center"
-                  : "uppercase text-left "
-              }`}
-              onClick={() => {
-                handleToggleSidebar();
-              }}
-            >
-              Others
-            </Typography>
-          </div>
-          <List>
-            {OthersList.map((list, i) => {
-              return list.dropdowns ? (
-                <Accordion
-                  key={list.name + i}
-                  open={othersOpen === i + 1}
-                  icon={
-                    <ChevronDownIcon
-                      strokeWidth={2.5}
-                      className={`mx-auto h-4 w-4 ${
-                        !isSidebarOpen && "hidden"
-                      } transition-transform ${
-                        othersOpen === i + 1 ? "rotate-180" : ""
+                  <Accordion
+                    className={`mb-2 group rounded-xl `}
+                    open={menuOpen === i + 1}
+                    onClick={() => handleMenuOpen(i + 1)}
+                  >
+                    <ListItem
+                      className={` group ${
+                        menuOpen === i + 1 ? "bg-slate-300 " : " "
                       }`}
-                    />
-                  }
-                >
-                  <ListItem className="p-0" selected={othersOpen === i + 1}>
-                    <AccordionHeader
-                      onClick={() => {
-                        !isSidebarOpen && handleToggleSidebar();
-                        handleOthersOpen(i + 1);
-                      }}
-                      className={`border-b-0 p-3 `}
+                      selected={menuOpen === i + 1}
                     >
                       <ListItemPrefix>
-                        {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -436,58 +427,144 @@ export default function MultiLevelSidebar({
                       >
                         {list.name}
                       </Typography>
+                    </ListItem>
+                  </Accordion>
+                </Link>
+              );
+            })}
+          </List>
+
+          <div className={`${isSidebarOpen && "pl-4"}  mt-5`}>
+            <Typography
+              variant="h5"
+              color="blue-gray"
+              className={`${
+                !isSidebarOpen
+                  ? "uppercase text-center"
+                  : "uppercase text-left "
+              }`}
+              onClick={() => {
+                handleToggleSidebar();
+              }}
+            >
+              Others
+            </Typography>
+          </div>
+          <List>
+            {OthersList.map((list, i) => {
+              return list.dropdowns ? (
+                <Accordion
+                  className={` rounded-xl `}
+                  key={list.name + i}
+                  open={othersOpen === i + 1}
+                  icon={
+                    <ChevronDownIcon
+                      strokeWidth={2.5}
+                      className={` h-4 w-4 ${
+                        !isSidebarOpen && "hidden"
+                      } transition-transform ${
+                        othersOpen === i + 1 ? "rotate-180" : ""
+                      } `}
+                    />
+                  }
+                >
+                  <ListItem
+                    className={`p-0 group ${
+                      othersOpen === i + 1 ? "bg-slate-300 " : " "
+                    }`}
+                    selected={othersOpen === i + 1}
+                  >
+                    <AccordionHeader
+                      onClick={() => {
+                        !isSidebarOpen && handleToggleSidebar();
+                        handleOthersOpen(i + 1);
+                      }}
+                      className={`border-b-0 p-3 `}
+                    >
+                      <ListItemPrefix>
+                        {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="fill-[#082431] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                        >
+                          {list.icon}
+                        </svg>
+                      </ListItemPrefix>
+                      <Typography
+                        color="blue-gray"
+                        className={`mr-auto font-normal ${
+                          isSidebarOpen ? "" : "hidden"
+                        } truncate`}
+                      >
+                        {list.name}
+                      </Typography>
                     </AccordionHeader>
                   </ListItem>
 
                   <AccordionBody className="py-1">
                     <List className="p-0">
                       {list.dropdowns.map((list, i) => (
-                        <ListItem key={list.name + i}>
-                          <ListItemPrefix>
-                            <ChevronRightIcon
-                              strokeWidth={3}
-                              className={`h-3 w-5 ${
-                                isSidebarOpen ? "" : "hidden"
-                              } `}
-                            />
-                          </ListItemPrefix>
-                          <Typography
-                            color="blue-gray"
-                            className={`mr-auto font-normal ${
-                              isSidebarOpen ? "" : "hidden"
-                            } `}
-                          >
-                            {list.name}
-                          </Typography>
-                        </ListItem>
+                        <Link to={list.link} key={list.name + i}>
+                          <ListItem className={`group `}>
+                            <ListItemPrefix>
+                              <ChevronRightIcon
+                                strokeWidth={3}
+                                className={`h-3 w-5 ${
+                                  isSidebarOpen ? "" : "hidden"
+                                } `}
+                              />
+                            </ListItemPrefix>
+                            <Typography
+                              color="blue-gray"
+                              className={`   ${isSidebarOpen ? "" : "hidden"} `}
+                            >
+                              {list.name}
+                            </Typography>
+                          </ListItem>
+                        </Link>
                       ))}
                     </List>
                   </AccordionBody>
                 </Accordion>
               ) : (
-                <Link to={list.link}  key={list.name + i}>
-                  <ListItem >
-                    <ListItemPrefix>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        className="fill-[#082431] opacity-50 group-hover:fill-[#EE7203] group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
-                      >
-                        {list.icon}
-                      </svg>
-                    </ListItemPrefix>
-                    <Typography
-                      color="blue-gray"
-                      className={`mr-auto font-normal ${
-                        isSidebarOpen ? "" : "hidden"
-                      } `}
+                <Link to={list.link} key={list.name}>
+                  <Accordion
+                    className={`mb-2 group rounded-xl `}
+                    open={othersOpen === i + 1}
+                    onClick={() => handleOthersOpen(i + 1)}
+                  >
+                    <ListItem
+                      className={` group ${
+                        othersOpen === i + 1 ? "bg-slate-300 " : " "
+                      }`}
+                      selected={othersOpen === i + 1}
                     >
-                      {list.name}
-                    </Typography>
-                  </ListItem>
+                      <ListItemPrefix>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="fill-[#082431] opacity-50  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                        >
+                          {list.icon}
+                        </svg>
+                      </ListItemPrefix>
+                      <Typography
+                        color="blue-gray"
+                        className={`mr-auto font-normal ${
+                          isSidebarOpen ? "" : "hidden"
+                        } `}
+                      >
+                        {list.name}
+                      </Typography>
+                    </ListItem>
+                  </Accordion>
                 </Link>
               );
             })}

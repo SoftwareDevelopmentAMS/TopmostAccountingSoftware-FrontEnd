@@ -11,6 +11,8 @@ import ListofOptions from "./Pages/Add-on-list";
 import PatientInvoiceList from "./Pages/PatientInvoiceList"
 import PurchaseInvoiceList from "./Pages/PurchaseInvoiceList"
 import DashBoard from "./Pages/DashBoard";
+import AddDoc from "./Pages/Add-Doc";
+import DoctorsList from "./Pages/Doctors-List";
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
           <Route path="purchase-Invoice-list" element={<PurchaseInvoiceList />} />
           <Route path="add-on" element={<AddOptions />} />
           <Route path="add-on-list" element={<ListofOptions />} />
+          <Route path="add-Doc" element={<AddDoc />} />
+          <Route path="Doctors-list" element={<DoctorsList />} />
+
           <Route
             path="settings"
             element={
