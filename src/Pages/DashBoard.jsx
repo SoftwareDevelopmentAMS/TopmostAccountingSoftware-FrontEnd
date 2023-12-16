@@ -1,68 +1,65 @@
-// HomePage.js
-import { Bar, Pie } from 'react-chartjs-2';
-
-const DashBoard = () => {
-  // Sample data for charts
-  const barChartData = {
-    labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
-    datasets: [
-      {
-        label: 'Sample Bar Chart',
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(75,192,192,0.6)',
-        hoverBorderColor: 'rgba(75,192,192,1)',
-        data: [65, 59, 80, 81, 56],
-      },
-    ],
-  };
-
-  const pieChartData = {
-    labels: ['Category A', 'Category B', 'Category C', 'Category D', 'Category E'],
-    datasets: [
-      {
-        data: [300, 50, 100, 40, 120],
-        backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#FFCE56',
-          '#8C14FC',
-          '#3ADF00',
-        ],
-        hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#FFCE56',
-          '#8C14FC',
-          '#3ADF00',
-        ],
-      },
-    ],
-  };
-
+import HoroImg from "../assets/DashBoard/DashBordHeroSectionIMG.png";
+import CompanyInfo from "../components/DashBoard/companyInfo";
+import ChartSesion from "../components/DashBoard/Homepage/ChartSesion";
+import StatsBox from "../components/DashBoard/StatsBox";
+import TodoList from "../components/DashBoard/Todo";
+import WeatherCard from "../components/DashBoard/WeatherCard";
+const Dashboard = () => {
   return (
-    <div>
-      {/* <h2>Bar Chart</h2>
-      <Bar
-        data={barChartData}
-        options={{
-          scales: {
-            x: {
-              type: 'category', // Use 'category' scale for x-axis
-            },
-          },
-        }}
-      />
+    <div className="p-4 lg:p-8 bg-gray-100 ">
+      {/* Company info card */}
+      <CompanyInfo companyName={"Topmost Group "} />
+      {/* Weather and stats container */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2  ">
+        {/* Weather Card - Assuming it takes a color prop for background */}
+        <div className="md:col-span-2 xl:col-span-1 ">
+          <WeatherCard
+            HoroImg={HoroImg}
+            temperature="31"
+            city="Bangalore"
+            country="India"
+            color="bg-blue-500"
+          />
+        </div>
 
-      <h2>Pie Chart</h2>
-      <Pie data={pieChartData} /> */}
+        {/* Stats Boxes */}
+        <div className="flex  flex-grow gap-4 my-auto md:col-span-2 xl:col-span-1">
+          <div className="flex  flex-col gap-4 flex-grow">
+            <StatsBox
+              title="Today's Bookings"
+              value="4006"
+              percentage="100%"
+              color="bg-blue-500"
+            />
+            <StatsBox
+              title="Total Bookings"
+              value="61344"
+              percentage="220%"
+              color="bg-purple-500"
+            />
+          </div>
+          <div className="flex flex-col gap-4 flex-grow ">
+            <StatsBox
+              title="Number of Meetings"
+              value="34040"
+              percentage="200%"
+              color="bg-pink-500"
+            />
+            <StatsBox
+              title="Number of Clients"
+              value="47033"
+              percentage="22%"
+              color="bg-red-500"
+            />
+          </div>
+        </div>
+      </div>
+      
+        <ChartSesion />
+        <TodoList />
+      
     </div>
   );
 };
 
-export default DashBoard;
-
-
-
-
+export default Dashboard;

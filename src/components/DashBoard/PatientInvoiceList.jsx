@@ -3,12 +3,10 @@ import {patientInvoiceList} from "../../assets/data"
 import { useState } from "react";
 const PatientInvoiceList = () => {
   const [selectedFields, setSelectedFields] = useState([
-    'EnteredBy',
+    'InvoiceId',
     'CreatedAt',
     'Branch',
-    'InvoiceId',
-    'Name',
-    'SalesAmount',
+    'Name', 
     'TotalAmount',
   ]);
 

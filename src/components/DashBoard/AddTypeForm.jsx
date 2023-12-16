@@ -21,7 +21,11 @@ const DynamicForm = ({ formFields, onSubmit, value }) => {
         const fieldName = field.name;
 
         // Check if the field is required
-        if (field.type === "text" || field.type === "dropdown") {
+        if (
+          field.type === "text" ||
+          field.type === "dropdown" ||
+          field.type === "number"
+        ) {
           const fieldValue = values[fieldName];
 
           // Check if the field is empty
@@ -92,6 +96,26 @@ const DynamicForm = ({ formFields, onSubmit, value }) => {
                 id={field.name}
                 name={field.name}
                 label={field.label}
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={formik.values[field.name] || ""}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched[field.name] &&
+                  Boolean(formik.errors[field.name])
+                }
+                helperText={
+                  formik.touched[field.name] && formik.errors[field.name]
+                }
+              />
+            )}
+            {field.type === "number" && (
+              <TextField
+                id={field.name}
+                name={field.name}
+                label={field.label}
+                type="number"
                 variant="outlined"
                 fullWidth
                 margin="normal"
