@@ -296,7 +296,7 @@ export default function MultiLevelSidebar({
     <div>
       <Card
         className={`h-[calc(100vh)]  bg-[#F1F2F7]  max-w-[20rem]   border transition-all transform duration-500 ${
-          isSidebarOpen ? "w-64 py-4" : "w-28 p-4"
+          isSidebarOpen ? "w-64 py-4" : "md:w-28 md:p-4 w-20 p-0 "
         }`}
       >
         <div className="h-auto w-full flex justify-center  ">

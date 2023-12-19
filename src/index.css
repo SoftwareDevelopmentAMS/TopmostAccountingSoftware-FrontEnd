@@ -10,25 +10,4 @@
     &::-webkit-scrollbar {
        width:8px;}
   }
-
-  @media print {
-    body *  {
-      visibility: hidden;
-    }
-
-    #selectcolumn * {
-      display: none !important;
-    }
-  
-    #print-table,
-    #print-table * {
-      visibility: visible;
-    }
-  
-    #print-table {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-  }
-
+ 

@@ -6,9 +6,10 @@ import 'datatables.net-buttons';
 import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
 import 'datatables.net-buttons/js/buttons.html5';
 import 'jspdf-autotable';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-
-const DataTable = ({ data,selectedFields,setSelectedFields }) => {
+const DataTable = ({  openFilter,setFilterOpen, data,selectedFields,setSelectedFields }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   
@@ -90,6 +91,8 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
   }, [data])
 
 
+
+
   const toggleField = (field) => {
     const isSelected = selectedFields.includes(field);
     setSelectedFields((prevSelectedFields) =>
@@ -99,20 +102,71 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
     );
   };
 
+
+
+  const printTable = () => {
+    const printWindow = window.open('', '_blank');
+    const tableHtml = document.getElementById('print-table').outerHTML;
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print Table</title>
+          <style>
+          #actioncolumn{
+            display: none !important;
+          }
+          
+           #td{
+            display: none !important;
+          }
+          body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width:100%;
+            margin: 0;
+          }
+          table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+          th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          </style>
+        </head>
+        <body>
+          ${tableHtml}
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  };
+
   return (
-    <div className="container mx-auto p-4 mb-16 relative" id='print-table' >
-      <button onClick={()=>{
-        window.print(tableRef);
-      }} className='bg-green-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute right-0 -top-11'>print</button>
-      <table   ref={tableRef} className="min-w-full bg-white border border-gray-300 shadow-md rounded">
+    <div className="container mx-auto p-4 pt-20 mb-16 relative  overflow-x-auto"    >
+      <button onClick={printTable} className='bg-green-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute right-0 top-0'>print</button>
+      {setFilterOpen && <button onClick={()=>setFilterOpen(!openFilter)}  className='bg-blue-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute left-0 top-0'>Filter</button>}
+      <table  id='print-table'    ref={tableRef} className="min-w-full bg-white border border-gray-300 shadow-md rounded overflow-x-scroll">
         <thead>
           <tr>
             {selectedFields.map((field) => (
-              <th key={field} className="text-center py-2 px-4 border-b">
+              <th  key={field} className="text-center py-2 px-4 border-b truncate">
                 {field}
               </th>
             ))}
-            <th className="text-center py-2 px-4 border-b">Actions</th>
+            <th id='td' className="text-center py-2 px-4 border-b">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -127,13 +181,13 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
                   {row[field]}
                 </td>
               ))}
-              <td className="text-center py-2 px-4 border-b space-x-2">
+              <td id='actioncolumn' className="text-center py-2 px-4 border-b space-x-2 font-bold text-white ">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleEdit(row.InvoiceId);
                   }}
-                  className="bg-blue-500 p-2   rounded-lg"
+                  className="bg-[#007bff] p-3 hover:bg-[#3a6ba0]   rounded-lg"
                 >
                   Edit
                 </button>
@@ -142,7 +196,7 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
                     e.stopPropagation();
                     handleDelete(row.InvoiceId);
                   }}
-                  className="bg-red-500 p-2  rounded-lg"
+                  className="bg-[#dc3545] p-3 hover:bg-[#ad424d] rounded-lg"
                 >
                   Delete
                 </button>
@@ -151,7 +205,7 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
                     e.stopPropagation();
                     handleHide(row.InvoiceId);
                   }}
-                  className="bg-gray-500 p-2 rounded-lg"
+                  className="bg-[#6c757d] p-3 hover:bg-[#5a6d7e]  rounded-lg"
                 >
                   Hide
                 </button>
@@ -163,7 +217,7 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
 
       {/* Modal for detailed view */}
       {showModal && (
-        <div id='selectcolumn' className="selectcolumn fixed inset-0 flex items-center justify-center">
+        <div  className="selectcolumn fixed inset-0 flex items-center justify-center">
           <div
             className="bg-black bg-opacity-50 absolute inset-0"
             onClick={() => {
@@ -188,21 +242,25 @@ const DataTable = ({ data,selectedFields,setSelectedFields }) => {
       )}
 
       {/* Field selection controls */}
-      <div className="mt-4 pt-4">
-        <h3>Select Fields:</h3>
-        {Object.keys(data[0]).map((field) => (
-          <label key={field} className="mr-4">
-            <input
-              type="checkbox"
+      <div className="mt-4 pt-4" id='selectcolumn' >
+      <h3>Select Fields:</h3>
+      {Object.keys(data[0]).map((field) => (
+        <FormControlLabel
+          key={field}
+          control={
+            <Checkbox
               checked={selectedFields.includes(field)}
               onChange={() => toggleField(field)}
             />
-            {field}
-          </label>
-        ))}
-      </div>
+          }
+          label={field}
+        />
+      ))}
+    </div>
     </div>
   );
 };
 
 export default DataTable;
+
+

@@ -5,8 +5,16 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [todoInput, setTodoInput] = useState('');
   const [editingIndex, setEditingIndex] = useState(-1);
+  const [showError, setShowError] = useState(false);
+
 
   const handleAddTodo = () => {
+    if (todoInput.trim() === '') {
+      setShowError(true);
+      return;
+    }
+  
+    setShowError(false);
     if (editingIndex >= 0) {
       const updatedTodos = [...todos];
       updatedTodos[editingIndex] = { ...updatedTodos[editingIndex], description: todoInput };
@@ -35,23 +43,28 @@ const TodoList = () => {
   };
 
   return (
-    <div className="p-4 w-1/2 h-80 shadow-md">
+    <div className="p-4 w-1/2 h-80 shadow-md border">
       <div className="flex justify-between items-center mb-4">
-        <input
-          type="text"
-          className="form-input px-4 py-2 border rounded"
-          placeholder="Add a new task"
-          value={todoInput}
-          onChange={(e) => setTodoInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
-        />
-        <button
-          className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={handleAddTodo}
-        >
-          {editingIndex >= 0 ? 'Update' : 'Add'}
-        </button>
-      </div>
+  <input
+    type="text"
+    className="form-input px-4 py-2 border rounded"
+    placeholder="Add a new task"
+    value={todoInput}
+    onChange={(e) => {
+      setTodoInput(e.target.value);
+      if (showError) setShowError(false);
+    }}
+    onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
+  />
+  <button
+    className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
+    onClick={handleAddTodo}
+  >
+    {editingIndex >= 0 ? 'Update' : 'Add'}
+  </button>
+</div>
+{showError && <p className="text-red-500">Please enter a task description.</p>}
+
       <ul className="space-y-2">
         {todos.map((todo, index) => (
           <li key={index} className={`flex justify-between items-center px-4 py-2 rounded ${todo.completed ? 'bg-green-200' : 'bg-gray-100'}`}>
