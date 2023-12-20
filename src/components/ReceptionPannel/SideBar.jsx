@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable  */
 import React, { useEffect } from "react";
 import Logo from "../../assets/NavBar/Topmost Logo  1.png";
 import {
