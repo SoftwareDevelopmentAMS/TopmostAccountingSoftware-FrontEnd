@@ -1,4 +1,4 @@
-import Purchaseinvoice from "../components/DashBoard/PurchaseInvoice"
+import Purchaseinvoice from "../Components/common/PurchaseInvoice"
 const PurchaseInvoice = () => {
   return (
     <>

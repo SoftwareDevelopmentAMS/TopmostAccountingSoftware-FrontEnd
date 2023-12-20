@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import Logo from "../assets/NavBar/Topmost Logo  1.png";
-import Glob from "../assets/NavBar/ph_globe-light.png";
+import Logo from "../../assets/NavBar/Topmost Logo  1.png";
+import Glob from "../../assets/NavBar/ph_globe-light.png";
 
 const NavBar = ({signup}) => {
   return (

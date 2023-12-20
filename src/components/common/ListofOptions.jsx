@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Table from "../DashBoard/common/Table"
+import Table from "./Table"
 
 
 const ListofOptions = ({tableData}) => {

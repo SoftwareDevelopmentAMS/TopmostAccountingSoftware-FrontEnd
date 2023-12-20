@@ -1,12 +1,12 @@
-import HoroImg from "../assets/DashBoard/DashBordHeroSectionIMG.png";
-import CompanyInfo from "../components/DashBoard/companyInfo";
-import ChartSesion from "../components/DashBoard/Homepage/ChartSesion";
-import StatsBox from "../components/DashBoard/StatsBox";
-import TodoList from "../components/DashBoard/Todo";
-import WeatherCard from "../components/DashBoard/WeatherCard";
+import HoroImg from "../../assets/DashBoard/DashBordHeroSectionIMG.png";
+import CompanyInfo from "../../Components/Reception Pannel/companyInfo";
+import ChartSesion from "../../Components/Reception Pannel/Homepage/ChartSesion";
+import StatsBox from "../../Components/Reception Pannel/StatsBox";
+import TodoList from "../../Components/Reception Pannel/Todo";
+import WeatherCard from "../../Components/Reception Pannel/WeatherCard";
 const Dashboard = () => {
   return (
-    <div className="p-4 lg:p-8 bg-background ">
+    <div className="p-4 lg:p-8 bg-Receptionbackground ">
       {/* Company info card */}
       <CompanyInfo companyName={"Topmost Group "} />
       {/* Weather and stats container */}

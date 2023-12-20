@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/DashBoard/NavBar";
-import SideBar from "../components/DashBoard/SideBar";
+import NavBar from "./NavBar";
+import SideBar from "./SideBar";
 
 const HomePage = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -21,7 +21,7 @@ const HomePage = () => {
         <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
 
         {/* Outlet and main content */}
-        <main className={`flex-1 overflow-y-auto transition-all duration-300 ease-in-out ${isSidebarOpen ? "max-w-[calc(100vw-16rem)]" : "max-w-[calc(100vw-5rem)]"}   bg-Receptionbackground`}>
+        <main className={`flex-1 overflow-y-auto transition-all duration-300 ease-in-out  bg-Receptionbackground`}>
           <Outlet />
         </main>
       </div>

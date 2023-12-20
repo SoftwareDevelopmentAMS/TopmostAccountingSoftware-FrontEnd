@@ -1,25 +1,30 @@
 import { Route, Routes } from "react-router-dom";
-import InitialLogin from "./Pages/InitialLogin";
-import InitialSignUp from "./Pages/InitialSignUp";
-import UserLogin from "./Pages/userLogin";
-import UserRegister from "./Pages/userRegister";
+
+{/* Branch */}
+import InitialLogin from "./Pages/Branch/InitialLogin";
+import InitialSignUp from "./Pages/Branch/InitialSignUp";
+
+{/* User */}
+import UserLogin from "./Pages/User/userLogin";
+import UserRegister from "./Pages/User/userRegister";
 
 // Reception Pannel
-import HomePage from "./Pages/HomePage";
+import ReceptionPannelWraper from "./Components/Reception Pannel/ReceptionPannelWraper";
 import AddOptions from "./Pages/Add-on";
 import PatientInvoice from "./Pages/PatientInvoice";
 import PurchaseInvoice from "./Pages/PurchaseInvoice";
 import ListofOptions from "./Pages/Add-on-list";
 import PatientInvoiceList from "./Pages/PatientInvoiceList"
 import PurchaseInvoiceList from "./Pages/PurchaseInvoiceList"
-import DashBoard from "./Pages/DashBoard";
+import ReceptionHome from "./Pages/ReceptionPannel/Home";
 import AddDoc from "./Pages/Add-Doc";
 import DoctorsList from "./Pages/Doctors-List";
 import PurchaseReport from "./Pages/reports/purchase-report-list"
 import PatientReport from "./Pages/reports/patiants-report-list"
 
 // Review Pannel
-import ReviewPannelWraper from "./Pages/Review Pannel/ReviewPannelWraper";
+import ReviewPannelWraper from "./Components/Review Pannel/ReviewPannelWraper";
+import ReviewHome from "./Pages/ReviewPannel/Home"
 
 
 
@@ -27,15 +32,18 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<InitialLogin />} />
-        <Route path="/user-register" element={<UserRegister />} />
 
-        <Route path="/user-login" element={<UserLogin />} />
+        {/* Branch */}
+        <Route path="/login" element={<InitialLogin />} />
         <Route path="/signup" element={<InitialSignUp />} />
 
+        {/* User */}
+        <Route path="/user-login" element={<UserLogin />} />
+        <Route path="/user-register" element={<UserRegister />} />
+
         {/* Reception Pannel */}
-        <Route path="/" element={<HomePage />}>
-          <Route index element={<DashBoard/>}/>
+        <Route path="/" element={<ReceptionPannelWraper />}>
+          <Route index element={<ReceptionHome/>}/>
           <Route path="patient-invoice" element={<PatientInvoice />} />
           <Route path="Patient-Invoice-list" element={<PatientInvoiceList />} />
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />
@@ -53,7 +61,7 @@ function App() {
 
         {/* Reception Pannel */}
         <Route path="review-Pannel" element={<ReviewPannelWraper />}>
-          <Route index element={<DashBoard/>}/>
+          <Route index element={<ReviewHome/>}/>
           <Route path="patient-invoice" element={<PatientInvoice />} />
           <Route path="Patient-Invoice-list" element={<PatientInvoiceList />} />
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />

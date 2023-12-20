@@ -359,7 +359,7 @@ export default function MultiLevelSidebar({
                 >
                   <ListItem
                     className={`p-0 group ${
-                      menuOpen === i + 1 ? "bg-slate-300 " : " "
+                      menuOpen === i + 1 ? "bg-ReceptionSelectedNav " : " "
                     }`}
                     selected={menuOpen === i + 1}
                   >
@@ -428,7 +428,7 @@ export default function MultiLevelSidebar({
                   >
                     <ListItem
                       className={` group ${
-                        menuOpen === i + 1 ? "bg-slate-300 " : " "
+                        menuOpen === i + 1 ? "bg-ReceptionSelectedNav" : " "
                       }`}
                       selected={menuOpen === i + 1}
                     >
@@ -495,7 +495,7 @@ export default function MultiLevelSidebar({
                 >
                   <ListItem
                     className={`p-0 group ${
-                      othersOpen === i + 1 ? "bg-slate-300 " : " "
+                      othersOpen === i + 1 ? "bg-ReceptionSelectedNav " : " "
                     }`}
                     selected={othersOpen === i + 1}
                   >
@@ -564,7 +564,7 @@ export default function MultiLevelSidebar({
                   >
                     <ListItem
                       className={` group ${
-                        othersOpen === i + 1 ? "bg-slate-300 " : " "
+                        othersOpen === i + 1 ? "bg-ReceptionSelectedNav " : " "
                       }`}
                       selected={othersOpen === i + 1}
                     >
@@ -575,7 +575,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-ReceptioniconColor hover:fill-ReceptioniconHover   group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-ReceptioniconColor group-hover:fill-ReceptioniconHover   group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>

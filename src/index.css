@@ -21,11 +21,12 @@
   --color-iconHover: #1b3258;
   --color-sidbarText:#1b3258;
   --color-sidbarHead: #374151;
-  --color-background: #F8F6F4; 
-
-
-
-
+  --color-background: #f3f4f6; 
+  --color-SelectedNav:  #cbd5e1; 
+  
+  
+  
+  
   
   
   /* Reception Pannel */
@@ -37,7 +38,9 @@
   --color-ReceptioniconHover: #374151;
   --color-ReceptionsidbarText:#374151;
   --color-ReceptionsidbarHead: #374151;
-  --color-Receptionbackground: #f3f4f6; 
+  --color-Receptionbackground: #e0e4ee; 
+  --color-ReceptionSelectedNav:  #cbd5e1; 
+  
 
 }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InvoiceTable from "../DashBoard/common/InvoceTable"
+import InvoiceTable from "./InvoceTable"
 import {purchaselist} from "../../assets/data"
 
 const PurchaseInvoiceList = () => {

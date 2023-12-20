@@ -21,6 +21,7 @@ export default {
         sidbarText: 'var(--color-sidbarText)',
         sidbarHead: 'var(--color-sidbarHead)',
         background: 'var(--color-background)',
+        SelectedNav: 'var(--color-SelectedNav)',
         
         ReceptionLogoText: 'var(--color-ReceptionLogoText)',
         ReceptionNavBar: 'var(--color-ReceptionNavBar)',
@@ -31,6 +32,7 @@ export default {
         ReceptionsidbarText: 'var(--color-ReceptionsidbarText)',
         ReceptionsidbarHead: 'var(--color-ReceptionsidbarHead)',
         Receptionbackground: 'var(--color-Receptionbackground)',
+        ReceptionSelectedNav: 'var(--color-ReceptionSelectedNav)',
         
       },
       

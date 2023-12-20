@@ -1,4 +1,4 @@
-import ListOptions from "../components/DashBoard/ListofOptions"
+import ListOptions from "../Components/common/ListofOptions"
 const tableData = [
   {
     name: "Branch",

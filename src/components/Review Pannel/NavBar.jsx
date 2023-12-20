@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import Profile from "../../assets/DashBoard/NavBar/Account.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfileInfo from "../../components/DashBoard/ProfileInfo";   
+import ProfileInfo from "../../Components/Reception Pannel/ProfileInfo";   
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 const NavBar = ({handleToggleSidebar,isSidebarOpen}) => {
   return (
-    <div className={`${isSidebarOpen ? "max-w-[calc(100vw-16rem)]" : "max-w-[calc(100vw-7rem)]"}  h-[4.5rem]    text-NavBarText   bg-NavBar w-full relative `}>
+    <div className={` h-[4.5rem]  text-NavBarText   bg-NavBar w-full relative `}>
        
       <div className="flex h-[4.5rem] w-full items-center ">
       <FontAwesomeIcon icon={isSidebarOpen ? faTimes : faBars} onClick={handleToggleSidebar} className="w-10 hover:scale-[2] scale-150"/>
