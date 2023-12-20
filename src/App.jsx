@@ -9,7 +9,7 @@ import UserLogin from "./Pages/User/userLogin";
 import UserRegister from "./Pages/User/userRegister";
 
 // Reception Pannel
-import ReceptionPannelWraper from "../src/Components/ReceptionPannel/ReceptionPannelWraper";
+import ReceptionWraper from "../src/Components/ReceptionPannel/ReceptionPannelWraper";
 import AddOptions from "./Pages/Add-on";
 import PatientInvoice from "./Pages/PatientInvoice";
 import PurchaseInvoice from "./Pages/PurchaseInvoice";
@@ -42,7 +42,7 @@ function App() {
         <Route path="/user-register" element={<UserRegister />} />
 
         {/* Reception Pannel */}
-        <Route path="/" element={<ReceptionPannelWraper />}>
+        <Route path="/" element={<ReceptionWraper />}>
           <Route index element={<ReceptionHome/>}/>
           <Route path="patient-invoice" element={<PatientInvoice />} />
           <Route path="Patient-Invoice-list" element={<PatientInvoiceList />} />
