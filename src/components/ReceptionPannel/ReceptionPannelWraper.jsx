@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 
-const HomePage = () => {
+const ReceptionPannelWraper = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
@@ -29,4 +29,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ReceptionPannelWraper;
