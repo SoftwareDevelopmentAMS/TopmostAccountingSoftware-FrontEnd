@@ -293,8 +293,7 @@ export default function MultiLevelSidebar({
   };
 
   return (
-    <div>
-      <Card
+    <Card
         className={`h-[calc(100vh)]  bg-ReceptionSideBar  rounded-none  max-w-[20rem]   border transition-all transform duration-500 ${
           isSidebarOpen ? "w-64 py-4" : "md:w-28 md:p-4 w-20 p-0 "
         }`}
@@ -322,10 +321,10 @@ export default function MultiLevelSidebar({
             </div>
           </div>
         </Link>
-        <div className="scrollingstyle overflow-y-auto ">
+        <div className="scrollingstyle overflow-y-auto overflow-x-hidden ">
           <div className={`${isSidebarOpen && "pl-5"}   mt-10`}>
             <Typography
-              variant="h5"
+              variant="h6"
               color="blue-gray"
               className={`${
                 !isSidebarOpen
@@ -461,7 +460,7 @@ export default function MultiLevelSidebar({
 
           <div className={`${isSidebarOpen && "pl-4"}  mt-5`}>
             <Typography
-              variant="h5"
+              variant="h6"
               color="blue-gray"
               className={`${
                 !isSidebarOpen
@@ -593,9 +592,8 @@ export default function MultiLevelSidebar({
                 </Link>
               );
             })}
-          </List>
+          </List> 
         </div>
       </Card>
-    </div>
   );
 }
