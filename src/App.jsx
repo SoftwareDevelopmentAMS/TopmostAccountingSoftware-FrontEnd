@@ -9,7 +9,7 @@ import UserLogin from "./Pages/User/userLogin";
 import UserRegister from "./Pages/User/userRegister";
 
 // Reception Pannel
-import ReceptionPannelWraper from "./Components/Reception Pannel/ReceptionPannelWraper";
+import ReceptionPannelWraper from "./Components/ReceptionPannel/ReceptionPannelWraper";
 import AddOptions from "./Pages/Add-on";
 import PatientInvoice from "./Pages/PatientInvoice";
 import PurchaseInvoice from "./Pages/PurchaseInvoice";
@@ -23,7 +23,7 @@ import PurchaseReport from "./Pages/reports/purchase-report-list"
 import PatientReport from "./Pages/reports/patiants-report-list"
 
 // Review Pannel
-import ReviewPannelWraper from "./Components/Review Pannel/ReviewPannelWraper";
+import ReviewPannelWraper from "./Components/ReviewPannel/ReviewPannelWraper";
 import ReviewHome from "./Pages/ReviewPannel/Home"
 
 

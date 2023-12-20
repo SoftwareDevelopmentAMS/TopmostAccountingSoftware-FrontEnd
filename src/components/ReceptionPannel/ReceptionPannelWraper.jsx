@@ -11,7 +11,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="dark:bg-boxdark-2 dark:text-bodydark flex h-screen overflow-hidden">
+    <div className="dark:bg-boxdark-2 dark:text-bodydark flex h-screen   overflow-hidden">
       {/* Sidebar */}
       <SideBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
 

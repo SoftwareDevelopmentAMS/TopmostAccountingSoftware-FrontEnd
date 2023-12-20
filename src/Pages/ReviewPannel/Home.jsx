@@ -1,9 +1,9 @@
 import HoroImg from "../../assets/DashBoard/DashBordHeroSectionIMG.png";
-import CompanyInfo from "../../Components/Reception Pannel/companyInfo";
-import ChartSesion from "../../Components/Reception Pannel/Homepage/ChartSesion";
-import StatsBox from "../../Components/Reception Pannel/StatsBox";
-import TodoList from "../../Components/Reception Pannel/Todo";
-import WeatherCard from "../../Components/Reception Pannel/WeatherCard";
+import CompanyInfo from "../../Components/ReceptionPannel/companyInfo";
+import ChartSesion from "../../Components/ReceptionPannel/Homepage/ChartSesion";
+import StatsBox from "../../Components/ReceptionPannel/StatsBox";
+import TodoList from "../../Components/ReceptionPannel/Todo";
+import WeatherCard from "../../Components/ReceptionPannel/WeatherCard";
 const Dashboard = () => {
   return (
     <div className="p-4 lg:p-8 bg-background ">
