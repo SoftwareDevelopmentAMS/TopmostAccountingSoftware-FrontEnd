@@ -10,6 +10,29 @@ export default {
         'Inter':['Inter', 'sans-serif'],
         'Poppins':['Poppins', 'sans-serif']
       },
+      colors: {
+        // Review Pannel
+        LogoText: 'var(--color-LogoText)',
+        NavBar: 'var(--color-NavBar)',
+        NavBarText: 'var(--color-NavBarText)',
+        SideBar: 'var(--color-SideBar)',
+        iconColor: 'var(--color-iconColor)',
+        iconHover: 'var(--color-iconHover)',
+        sidbarText: 'var(--color-sidbarText)',
+        sidbarHead: 'var(--color-sidbarHead)',
+        background: 'var(--color-background)',
+        
+        ReceptionLogoText: 'var(--color-ReceptionLogoText)',
+        ReceptionNavBar: 'var(--color-ReceptionNavBar)',
+        ReceptionNavBarText: 'var(--color-ReceptionNavBarText)',
+        ReceptionSideBar: 'var(--color-ReceptionSideBar)',
+        ReceptioniconColor: 'var(--color-ReceptioniconColor)',
+        ReceptioniconHover: 'var(--color-ReceptioniconHover)',
+        ReceptionsidbarText: 'var(--color-ReceptionsidbarText)',
+        ReceptionsidbarHead: 'var(--color-ReceptionsidbarHead)',
+        Receptionbackground: 'var(--color-Receptionbackground)',
+        
+      },
       
     },
     screens: {

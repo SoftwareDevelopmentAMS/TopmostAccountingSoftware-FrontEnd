@@ -14,7 +14,6 @@ import {
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-
 const MenuList = [
   {
     name: "Home",
@@ -22,7 +21,7 @@ const MenuList = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="fill-[#EE7203]"
+        className="fill-iconColor group-hover:fill-iconHover"
         viewBox="0 0 576 512"
       >
         <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
@@ -200,6 +199,7 @@ const MenuList = [
     ],
   },
 ];
+
 const OthersList = [
   {
     name: "Settings ",
@@ -272,31 +272,33 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
   return (
     <div>
       <Card
-        className={`h-[calc(100vh)] rounded-none bg-[#22354e]  max-w-[20rem] text-black   border transition-all transform duration-500 ${
+        className={`h-[calc(100vh)] rounded-none bg-SideBar  max-w-[20rem] text-sidbarText   transition-all transform duration-500 ${
           isSidebarOpen ? "w-64 py-4" : "md:w-28 md:p-4 w-20 p-0 "
         }`}
       >
-        <div className="h-auto w-full flex justify-center  ">
-          <Link to={"/"}>
+        <Link to={"/"}>
+          <div className="flex justify-center items-center gap-4">
             {" "}
-            <div className="flex w-full items-center gap-4  ">
+            <div>
               <img
                 src={Logo}
                 alt="TOPMOST ACCOUNTS"
-                className={`${!isSidebarOpen && "text-center"}  h-3/4 `}
+                className={`${!isSidebarOpen && "text-center"} `}
               />
+            </div>
+            <div className={`${isSidebarOpen && "w-[50%]"} `} >
               <h4
                 className={`${
                   !isSidebarOpen
                     ? "hidden"
-                    : "text-[#706F6F] leading-5 font-bold font-Poppins text-xl hidden xs1:flex"
+                    : "text-LogoText leading-[1.50rem]  font-bold font-Poppins text-xl hidden xs1:flex"
                 } `}
               >
                 TOPMOST ACCOUNTS
               </h4>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="scrollingstyle overflow-y-auto ">
           <div className={`${isSidebarOpen && "pl-5"}   mt-10`}>
             <Typography
@@ -353,7 +355,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#706F6F] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-iconColor group-hover:fill-iconHover  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -373,7 +375,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                     <List className="p-0">
                       {list.dropdowns.map((list, i) => (
                         <Link to={list.link} key={list.name + i}>
-                          <ListItem className={`group text-white`}>
+                          <ListItem className={`group text-sidbarText`}>
                             <ListItemPrefix>
                               <ChevronRightIcon
                                 strokeWidth={3}
@@ -414,14 +416,14 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-iconColor group-hover:fill-iconHover group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
                       </ListItemPrefix>
                       <Typography
                         color="blue-gray"
-                        className={`mr-auto font-normal text-white ${
+                        className={`mr-auto font-normal text-sidbarText ${
                           isSidebarOpen ? "" : "hidden"
                         } `}
                       >
@@ -489,7 +491,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-iconColor group-hover:fill-iconHover  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -550,7 +552,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#706F6F] opacity-50  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-iconColor group-hover:fill-iconHover  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>

@@ -20,7 +20,8 @@ const MenuList = [
     link: "/",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-        <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+        <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+      </svg>
     ),
   },
   {
@@ -65,7 +66,6 @@ const MenuList = [
         clipRule="evenodd"
         d="M9.59097 7.42484H11.6669C11.9816 7.42484 12.2289 7.16461 12.2289 6.8508C12.2289 6.52934 11.9816 6.27677 11.6669 6.27677H9.59097C9.27622 6.27677 9.02891 6.52934 9.02891 6.8508C9.02891 7.16461 9.27622 7.42484 9.59097 7.42484ZM14.1324 3.44562C14.5896 3.44562 14.8893 3.60635 15.1891 3.95843C15.4889 4.3105 15.5413 4.81565 15.4739 5.27412L14.7619 10.295C14.627 11.2602 13.8177 11.9712 12.8659 11.9712H4.68979C3.69307 11.9712 2.86871 11.1913 2.78627 10.181L2.09681 1.83755L0.965194 1.63855C0.665428 1.58498 0.455591 1.28648 0.50805 0.980325C0.560509 0.667284 0.852782 0.459865 1.16004 0.506554L2.9474 0.781326C3.2022 0.828014 3.38955 1.04156 3.41204 1.30179L3.55443 3.01624C3.57691 3.26193 3.77176 3.44562 4.01157 3.44562H14.1324ZM4.56973 13.1809C3.94023 13.1809 3.43062 13.7014 3.43062 14.3443C3.43062 14.9795 3.94023 15.5 4.56973 15.5C5.19175 15.5 5.70135 14.9795 5.70135 14.3443C5.70135 13.7014 5.19175 13.1809 4.56973 13.1809ZM13.0007 13.1809C12.3712 13.1809 11.8616 13.7014 11.8616 14.3443C11.8616 14.9795 12.3712 15.5 13.0007 15.5C13.6227 15.5 14.1323 14.9795 14.1323 14.3443C14.1323 13.7014 13.6227 13.1809 13.0007 13.1809Z"
       />
-      
     ),
     dropdowns: [
       {
@@ -295,31 +295,33 @@ export default function MultiLevelSidebar({
   return (
     <div>
       <Card
-        className={`h-[calc(100vh)]  bg-[#F1F2F7]  max-w-[20rem]   border transition-all transform duration-500 ${
+        className={`h-[calc(100vh)]  bg-ReceptionSideBar  rounded-none  max-w-[20rem]   border transition-all transform duration-500 ${
           isSidebarOpen ? "w-64 py-4" : "md:w-28 md:p-4 w-20 p-0 "
         }`}
       >
-        <div className="h-auto w-full flex justify-center  ">
-          <Link to={"/"}>
+        <Link to={"/"}>
+          <div className="flex justify-center items-center gap-4">
             {" "}
-            <div className="flex w-full items-center gap-4  ">
+            <div>
               <img
                 src={Logo}
                 alt="TOPMOST ACCOUNTS"
-                className={`${!isSidebarOpen && "text-center"}  h-3/4 `}
+                className={`${!isSidebarOpen && "text-center"} `}
               />
+            </div>
+            <div className={`${isSidebarOpen && "w-[50%]"} `}>
               <h4
                 className={`${
                   !isSidebarOpen
                     ? "hidden"
-                    : "text-[#EE7203] font-bold font-Poppins text-xl hidden xs1:flex"
+                    : "text-ReceptionLogoText leading-[1.50rem]  font-bold font-Poppins text-xl hidden xs1:flex"
                 } `}
               >
                 TOPMOST ACCOUNTS
               </h4>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="scrollingstyle overflow-y-auto ">
           <div className={`${isSidebarOpen && "pl-5"}   mt-10`}>
             <Typography
@@ -376,7 +378,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-ReceptioniconColor   hover:fill-ReceptioniconHover  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -437,7 +439,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-ReceptioniconColor hover:fill-ReceptioniconHover  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -512,7 +514,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-ReceptioniconColor hover:fill-ReceptioniconHover   group-hover:opacity-100  group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>
@@ -573,7 +575,7 @@ export default function MultiLevelSidebar({
                           height="16"
                           viewBox="0 0 16 16"
                           fill="none"
-                          className="fill-[#082431] opacity-50  group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
+                          className="fill-ReceptioniconColor hover:fill-ReceptioniconHover   group-hover:opacity-100 group-hover:scale-150  transition-all  ease-in-out duration-300   h-6 w-6"
                         >
                           {list.icon}
                         </svg>

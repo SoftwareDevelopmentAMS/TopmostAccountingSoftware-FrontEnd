@@ -16,7 +16,7 @@ const ReviewPannelWraper = () => {
         <SideBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
   
         {/* Main content area */}
-        <div className="flex flex-col w-full bg-[#F1F2F7]">
+        <div className="flex flex-col w-full bg-background">
           {/* Navbar */}
           <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
   

@@ -6,7 +6,7 @@ import TodoList from "../components/DashBoard/Todo";
 import WeatherCard from "../components/DashBoard/WeatherCard";
 const Dashboard = () => {
   return (
-    <div className="p-4 lg:p-8 bg-gray-100 ">
+    <div className="p-4 lg:p-8 bg-background ">
       {/* Company info card */}
       <CompanyInfo companyName={"Topmost Group "} />
       {/* Weather and stats container */}
@@ -23,7 +23,7 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Boxes */}
-        <div className="flex  flex-grow gap-4 my-auto md:col-span-2 xl:col-span-1">
+        <div className="flex  flex-grow gap-4 my-auto md:col-span-2 xl:col-span-1 ">
           <div className="flex  flex-col gap-4 flex-grow">
             <StatsBox
               title="Today's Bookings"
@@ -54,10 +54,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      
-        <ChartSesion />
-        <TodoList />
-      
+
+      <ChartSesion />
+      <TodoList />
     </div>
   );
 };
