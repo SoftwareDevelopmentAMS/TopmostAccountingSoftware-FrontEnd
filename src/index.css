@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .scrollingstyle {
     scrollbar-width: thin;
     scrollbar-color: darkgray lightgray;
@@ -10,4 +9,35 @@
     &::-webkit-scrollbar {
        width:8px;}
   }
+
  
+:root{
+  /* Review Pannel */
+  --color-LogoText:#1b3258;
+  --color-SideBar: #F8F6F4;  
+  --color-NavBar: #F8F6F4; 
+  --color-NavBarText: #1b3258; 
+  --color-iconColor: #374151;    
+  --color-iconHover: #1b3258;
+  --color-sidbarText:#1b3258;
+  --color-sidbarHead: #374151;
+  --color-background: #F8F6F4; 
+
+
+
+
+  
+  
+  /* Reception Pannel */
+  --color-ReceptionLogoText:#ee7203;
+  --color-ReceptionSideBar: #f1f2f7;  
+  --color-ReceptionNavBar: #f1f2f7; 
+  --color-ReceptionNavBarText: #080808; 
+  --color-ReceptioniconColor: #374151;    
+  --color-ReceptioniconHover: #374151;
+  --color-ReceptionsidbarText:#374151;
+  --color-ReceptionsidbarHead: #374151;
+  --color-Receptionbackground: #f3f4f6; 
+
+}
+

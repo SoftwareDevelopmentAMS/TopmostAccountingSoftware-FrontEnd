@@ -29,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<InitialLogin />} />
         <Route path="/user-register" element={<UserRegister />} />
+
         <Route path="/user-login" element={<UserLogin />} />
         <Route path="/signup" element={<InitialSignUp />} />
 
@@ -78,6 +79,7 @@ function App() {
 export default App;
 
 
+// eslint-disable-next-line react/prop-types
 const Wraper = ({value}) => {
   return (
     <div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">

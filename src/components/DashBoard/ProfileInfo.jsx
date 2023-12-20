@@ -10,7 +10,7 @@ const ProfileInfo = ({ Profile, Name, Data , NameColor="text-[#1F384C]"}) => {
       <button
         id="dropdownAvatarNameButton"
         data-dropdown-toggle="dropdownAvatarName"
-        className="flex items-center  text-sm pe-1 font-medium text-gray-900 rounded-lg    md:me-0   dark:focus:ring-gray-700 dark:text-white"
+        className="flex items-center  text-sm pe-1 font-medium text-NavBarText rounded-lg    md:me-0   dark:focus:ring-gray-700 dark:text-white"
         type="button"
         onClick={handleDropdownToggle}
       >
@@ -20,7 +20,7 @@ const ProfileInfo = ({ Profile, Name, Data , NameColor="text-[#1F384C]"}) => {
           src={Profile}
           alt="user photo"
         />
-        <h1 className={`${NameColor} text-lg hidden  sm:inline  font-Poppins font-normal `}>{Name}</h1>
+        <h1 className={`${NameColor} text-lg hidden   sm:inline  font-Poppins font-normal `}>{Name}</h1>
         <div className="sm:ms-3 p-1 h-full rounded-md bg-white ">
         <svg
           className="w-3 h-3  "
