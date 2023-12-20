@@ -1,4 +1,4 @@
-import Purchaseinvoice from "../Components/common/PurchaseInvoice"
+import Purchaseinvoice from "../components/common/PurchaseInvoice"
 const PurchaseInvoice = () => {
   return (
     <>

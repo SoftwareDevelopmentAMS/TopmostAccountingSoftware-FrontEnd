@@ -1,7 +1,7 @@
 import { useState } from "react";
-import InvoiceTable from "../../Components/common/InvoceTable"
+import InvoiceTable from "../../components/common/InvoceTable"
 import {purchaselist} from "../../assets/data"
-import FilterComponent from "../../Components/common/filter";
+import FilterComponent from "../../components/common/filter";
 
 // Mock data for dropdown lists
 const dateOptions = [

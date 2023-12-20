@@ -1,4 +1,4 @@
-import ListofOptions from "../Components/common/ListofOptions"
+import ListofOptions from "../components/common/ListofOptions"
 const tableData = [
     
     {
