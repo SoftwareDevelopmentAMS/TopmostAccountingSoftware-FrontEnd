@@ -1,4 +1,4 @@
-import Addon from "../components/DashBoard/AddOptions";
+import Addon from "../Components/common/AddOptions";
 const buttonlist = [
   {
     name: "Doctor",

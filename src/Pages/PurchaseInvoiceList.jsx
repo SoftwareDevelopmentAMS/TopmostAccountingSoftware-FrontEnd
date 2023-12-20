@@ -1,4 +1,4 @@
-import PurchaseInvoicelist from "../components/DashBoard/PurchaseInvoiceList"
+import PurchaseInvoicelist from "../Components/common/PurchaseInvoiceList"
 const PurchaseInvoiceList = () => {
   return (
     <>

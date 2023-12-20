@@ -1,7 +1,7 @@
 // InvoiceForm.js
 import { useFormik } from "formik";
-import TextFieldInput from "../common/inputbox";
-import SelectBox from "../common/SelectBox";
+import TextFieldInput from "../../common/inputbox";
+import SelectBox from "../../common/SelectBox";
 import { Grid } from "@mui/material";
 
 const formFields = [

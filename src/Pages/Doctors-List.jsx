@@ -1,4 +1,4 @@
-import ListofOptions from "../components/DashBoard/ListofOptions"
+import ListofOptions from "../Components/common/ListofOptions"
 const tableData = [
     
     {

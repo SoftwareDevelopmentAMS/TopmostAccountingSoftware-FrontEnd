@@ -1,5 +1,5 @@
-import NavBar from "../components/NavBar";
-import SignIn from "../components/SignIn/SignIn";
+import NavBar from "../../Components/common/NavBar";
+import SignIn from "../../Components/Branch/SignIn";
 const InitialLogin = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#F3E9E5]">

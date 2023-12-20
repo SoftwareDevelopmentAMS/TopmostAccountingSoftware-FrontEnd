@@ -272,7 +272,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
   return (
     <div>
       <Card
-        className={`h-[calc(100vh)] rounded-none bg-SideBar  max-w-[20rem] text-sidbarText   transition-all transform duration-500 ${
+        className={`h-screen rounded-none bg-SideBar  max-w-[20rem] text-sidbarText   transition-all transform duration-500 ${
           isSidebarOpen ? "w-64 py-4" : "md:w-28 md:p-4 w-20 p-0 "
         }`}
       >
@@ -336,7 +336,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                 >
                   <ListItem
                     className={`p-0 group    ${
-                      menuOpen === i + 1 ? "bg-slate-600 " : " "
+                      menuOpen === i + 1 ? "bg-SelectedNav " : " "
                     }`}
                     selected={menuOpen === i + 1}
                   >
@@ -405,7 +405,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                   >
                     <ListItem
                       className={` group ${
-                        menuOpen === i + 1 ? "bg-slate-600 " : " "
+                        menuOpen === i + 1 ? "bg-SelectedNav " : " "
                       }`}
                       selected={menuOpen === i + 1}
                     >
@@ -472,7 +472,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                 >
                   <ListItem
                     className={`p-0 group ${
-                      othersOpen === i + 1 ? "bg-slate-600 " : " "
+                      othersOpen === i + 1 ? "bg-SelectedNav " : " "
                     }`}
                     selected={othersOpen === i + 1}
                   >
@@ -541,7 +541,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
                   >
                     <ListItem
                       className={` group ${
-                        othersOpen === i + 1 ? "bg-slate-600 " : " "
+                        othersOpen === i + 1 ? "bg-SelectedNav " : " "
                       }`}
                       selected={othersOpen === i + 1}
                     >

@@ -1,4 +1,4 @@
-import InvoiceTable from "../DashBoard/common/InvoceTable"
+import InvoiceTable from "./InvoceTable"
 import {patientInvoiceList} from "../../assets/data"
 import { useState } from "react";
 
