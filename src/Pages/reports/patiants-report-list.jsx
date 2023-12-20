@@ -1,7 +1,7 @@
 import { useState } from "react";
-import InvoiceTable from "../../Components/common/InvoceTable"
+import InvoiceTable from "../../components/common/InvoceTable"
 import {patientInvoiceList} from "../../assets/data"
-import FilterComponent from "../../Components/common/filter";
+import FilterComponent from "../../components/common/filter";
 
 
 const dateOptions = [

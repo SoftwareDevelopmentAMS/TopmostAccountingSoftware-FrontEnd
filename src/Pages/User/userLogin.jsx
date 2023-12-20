@@ -1,4 +1,4 @@
-import Login from "../../Components/User/Login"
+import Login from "../../components/User/Login"
 const userLogin = () => {
   return (
     <div className="bg-[#ee7203] w-full  h-screen flex justify-end items-center ">

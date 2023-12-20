@@ -1,4 +1,4 @@
-import Patient_Invoice from "../Components/common/PatientInvoice"
+import Patient_Invoice from "../components/common/PatientInvoice"
 const PatientInvoice = () => {
   return (
     <>

@@ -1,4 +1,4 @@
-import Addon from "../Components/common/AddOptions"
+import Addon from "../components/common/AddOptions"
 const buttonlist = [
   {
     name: "Branch",

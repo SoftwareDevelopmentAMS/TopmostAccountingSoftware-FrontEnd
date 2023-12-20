@@ -1,4 +1,4 @@
-import PatientinvoiceList from "../Components/common/PatientInvoiceList"
+import PatientinvoiceList from "../components/common/PatientInvoiceList"
 const PatientInvoiceList = () => {
   return (
     <>

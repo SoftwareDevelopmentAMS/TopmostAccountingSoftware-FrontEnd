@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Profile from "../../assets/DashBoard/NavBar/Account.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfileInfo from "../../Components/ReceptionPannel/ProfileInfo";   
+import ProfileInfo from "../../components/ReceptionPannel/ProfileInfo";   
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 const NavBar = ({handleToggleSidebar,isSidebarOpen}) => {
   return (
