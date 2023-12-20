@@ -9,7 +9,7 @@ import UserLogin from "./Pages/User/userLogin";
 import UserRegister from "./Pages/User/userRegister";
 
 // Reception Pannel
-import ReceptionWraper from "../src/Components/ReceptionPannel/ReceptionPannelWraper";
+import ReceptionWraper from "./Components/ReceptionPannel/receptionWraper";
 import AddOptions from "./Pages/Add-on";
 import PatientInvoice from "./Pages/PatientInvoice";
 import PurchaseInvoice from "./Pages/PurchaseInvoice";
