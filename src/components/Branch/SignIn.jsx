@@ -16,16 +16,16 @@ const SignIn = () => {
       // Validate email format
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!values.email) {
-        errors.email = 'Email is Required';
+        errors.email = "Email is Required";
       } else if (!emailRegex.test(values.email)) {
-        errors.email = 'Invalid email format';
+        errors.email = "Invalid email format";
       }
-      
+
       // Validate password
       if (!values.password) {
-        errors.password = 'Password is Required';
+        errors.password = "Password is Required";
       } else if (values.password.length < 5) {
-        errors.password = 'Password must be at least 5 characters';
+        errors.password = "Password must be at least 5 characters";
       }
 
       return errors;
@@ -96,20 +96,28 @@ const SignIn = () => {
               Forgot your password?!
             </a>
           </div>
-          
+
           {/* Sign In button */}
-          <button
+          {/* <button
             type="submit"
             className="w-full bg-[#EE7203] text-white py-2 px-4 rounded-md"
           >
             Sign In
-          </button>
+          </button> */}
+
+          <Link to={"/user-login"}>
+            <button className="w-full bg-[#EE7203] text-white py-2 px-4 rounded-md">
+              Sign In
+            </button>
+          </Link>
         </form>
-        
+
         {/* Registration link */}
         <p className="text-xs py-4 text-center px-4">
           Don’t have an account?{" "}
-          <Link to={'/signup'}><span className="hover:cursor-pointer font-bold">Register Now</span></Link>
+          <Link to={"/signup"}>
+            <span className="hover:cursor-pointer font-bold">Register Now</span>
+          </Link>
         </p>
       </div>
     </div>
