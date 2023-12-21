@@ -5,7 +5,7 @@ const InitialLogin = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-white">
     
     <NavBar signup={false} />
-    <div className="h-full bg-[#F3E9E5] flex justify-center items-center">
+    <div className="h-full bg-white  flex justify-center items-center">
       <SignIn />
     </div>
   </div>
