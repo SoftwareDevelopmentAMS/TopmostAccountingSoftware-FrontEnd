@@ -217,29 +217,29 @@ const DataTable = ({  openFilter,setFilterOpen, data,selectedFields,setSelectedF
 
       {/* Modal for detailed view */}
       {showModal && (
-        <div  className="selectcolumn fixed inset-0 flex items-center justify-center">
-          <div
-            className="bg-black bg-opacity-50 absolute inset-0"
-            onClick={() => {
-              setSelectedRow(null);
-              setShowModal(false);
-            }}
-          ></div>
-          <div className="bg-white p-4 max-w-md mx-auto z-10 rounded shadow-md">
-            {/* Display detailed view content */}
-            {selectedRow && (
-              <div>
-                <h2>Detailed View</h2>
-                {selectedFields.map((field) => (
-                  <p key={field}>
-                    <strong>{field}:</strong> {selectedRow[field]}
-                  </p>
-                ))}
-              </div>
-            )}
-          </div>
+  <div className="selectcolumn fixed inset-0 flex  items-center justify-center">
+    <div
+      className="bg-black bg-opacity-50 absolute inset-0"
+      onClick={() => {
+        setSelectedRow(null);
+        setShowModal(false);
+      }}
+    ></div>
+    <div className="bg-white p-4  mx-auto z-10 rounded shadow-md h-[90%] w-[50%] ">
+      {/* Display detailed view content */}
+      {selectedRow && (
+        <div>
+          <h2>Detailed View</h2>
+          {Object.keys(selectedRow).map((field) => (
+            <p key={field}>
+              <strong>{field}:</strong> {selectedRow[field]}
+            </p>
+          ))}
         </div>
       )}
+    </div>
+  </div>
+)}
 
       {/* Field selection controls */}
       <div className="mt-4 pt-4" id='selectcolumn' >

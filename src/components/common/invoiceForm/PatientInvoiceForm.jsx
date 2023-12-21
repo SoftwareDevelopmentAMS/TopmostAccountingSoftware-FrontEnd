@@ -3,10 +3,15 @@ import { useFormik } from "formik";
 import TextFieldInput from "../../common/inputbox";
 import SelectBox from "../../common/SelectBox";
 import { Grid } from "@mui/material";
+import useToast from "../../../hooks/useToast";
+
 
 const formFields = [
-  { label: "Invoice ID", name: "invoiceId", type: "text", disabled: true },
-  { label: "Entered by", name: "Entered by", type: "text", disabled: true },
+  { label: "Invoice ID", name: "invoiceId", type: "text", },
+  // Demo
+  // { label: "Invoice ID", name: "invoiceId", type: "text", disabled: true },
+  // { label: "Entered by", name: "Entered by", type: "text", disabled: true },
+  { label: "Entered by", name: "Entered by", type: "text", },
   { label: "Name", name: "name", type: "text" },
   { label: "Age", name: "age", type: "number" },
   { label: "Address", name: "address", type: "text" },
@@ -58,11 +63,13 @@ const formFields = [
     label: "Total Amount",
     name: "totalAmount",
     type: "number",
-    disabled: true,
+    // disabled: true,
   },
 ];
 
 const InvoiceForm = () => {
+
+  const showToast = useToast()
   const formik = useFormik({
     initialValues: formFields.reduce(
       (acc, field) => ({ ...acc, [field.name]: "" }),
@@ -106,6 +113,8 @@ const InvoiceForm = () => {
     },
     onSubmit: (values) => {
       // Handle form submission logic here
+
+      showToast('Registration Completed', 'success');
       console.log("Form submitted with values:", values);
     },
   });

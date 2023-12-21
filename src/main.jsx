@@ -4,11 +4,13 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
     {/* <React.StrictMode> */}
       <App />
+      <ToastContainer position="bottom-right" />
     {/* </React.StrictMode> */}
   </Router>
 );
