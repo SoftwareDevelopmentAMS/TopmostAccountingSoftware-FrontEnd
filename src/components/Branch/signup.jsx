@@ -50,8 +50,8 @@ const SignUp = ({ data }) => {
   };
 
   return (
-    <div className="h-full flex items-center justify-center">
-      <div className="max-w-md w-full mx-4 bg-white p-8 rounded-2xl shadow-2xl">
+    <div className="h-full flex items-center justify-center bg-white">
+      <div className="max-w-md w-full mx-4 bg-white p-8 rounded-2xl shadow-2xl border ">
         <h1 className="text-center uppercase font-Inter text-3xl font-bold mb-6">
           Sign Up
         </h1>

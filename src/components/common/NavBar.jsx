@@ -6,7 +6,7 @@ import Glob from "../../assets/NavBar/ph_globe-light.png";
 const NavBar = ({signup}) => {
   return (
     <>
-    <div className="h-[5rem] flex-grow bg-[#F3E9E5] w-full flex justify-center">
+    <div className="h-[5rem] flex-grow bg-white w-full flex justify-center">
       <div className="w-3/4  flex items-center h-full justify-between">
         <div>
           <img src={Logo} alt="TopMost" />
