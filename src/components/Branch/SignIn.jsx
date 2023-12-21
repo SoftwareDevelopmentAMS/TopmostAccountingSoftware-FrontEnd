@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate()
   // useFormik is a hook for handling form state and form submission
   const formik = useFormik({
     initialValues: {
@@ -32,6 +33,7 @@ const SignIn = () => {
     },
     onSubmit: (values) => {
       // Add your authentication logic here
+      navigate("/user-login")
       console.log("Form submitted:", values);
     },
   });
@@ -98,18 +100,12 @@ const SignIn = () => {
           </div>
 
           {/* Sign In button */}
-          {/* <button
+          <button
             type="submit"
-            className="w-full bg-[#EE7203] text-white py-2 px-4 rounded-md"
-          >
+            className="w-full bg-[#EE7203] text-white py-2 px-4 rounded-md">
             Sign In
-          </button> */}
+          </button>
 
-          <Link to={"/user-login"}>
-            <button className="w-full bg-[#EE7203] text-white py-2 px-4 rounded-md">
-              Sign In
-            </button>
-          </Link>
         </form>
 
         {/* Registration link */}

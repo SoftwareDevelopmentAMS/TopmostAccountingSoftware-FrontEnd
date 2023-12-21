@@ -210,7 +210,7 @@ const OthersList = [
     dropdowns: [
       {
         name: "Accounts",
-        link: "accounts",
+        link: "/login",
         icon: (
           <path
             fillRule="evenodd"

@@ -2,9 +2,12 @@ import { useState } from "react";
 import TextInput from "../common/TextInput";
 import PasswordInput from "../common/PasswordInput";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useToast from "../../hooks/useToast";
 
 const Login = () => {
+  const navigation = useNavigate()
+  const tost = useToast()
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -38,6 +41,16 @@ const Login = () => {
     },
     onSubmit: (values) => {
       // Handle form submission logic here
+      if(values.email === "review@gmail.com"){
+        navigation("/review-Pannel")
+        
+      }else if (values.email === "reception@gmail.com"){
+        navigation("/")
+
+      }else{
+        tost("Email Id not valid", "error")
+      }
+
       console.log("Form submitted:", values);
     },
   });
@@ -85,22 +98,13 @@ const Login = () => {
 
 
 
-              {/* <button
+              <button
               type="submit"
               className="bg-[#ee7203] text-white font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Login
-            </button> */}
+            </button>
 
-            {/* Demo button */}
-              <Link to={(formik.values.email === "review" ? "/review-Pannel":formik.values.email === "reception" && "/" )}>
-                <button
-                  type="submit"
-                  className="bg-[#ee7203] text-white font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Login
-                </button>{" "}
-              </Link>
               <p className="text-center py-4">
                 Don’t have an account?{" "}
                 <Link to={"/user-register"}>

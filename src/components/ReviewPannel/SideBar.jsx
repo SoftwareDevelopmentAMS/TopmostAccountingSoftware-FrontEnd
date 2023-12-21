@@ -214,7 +214,7 @@ const OthersList = [
   },
   {
     name: "Accounts",
-    link: "accounts",
+    link: "/login",
     icon: (
       <path
         fillRule="evenodd"
