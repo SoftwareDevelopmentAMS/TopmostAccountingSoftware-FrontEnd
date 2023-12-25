@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { format } from 'date-fns';
 
+
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [todoInput, setTodoInput] = useState('');
@@ -43,10 +44,19 @@ const TodoList = () => {
   };
 
   return (
-    <div className="p-4 w-1/2 h-80 shadow-md border">
+    <div className="p-4 w-1/2 min-h-80 h-80 shadow-md border">
       <div className="flex justify-between items-center mb-4">
-  <input
+      <textarea rows="1" cols="30" name="text"  className="form-input px-4 py-2 border rounded"
+    placeholder="Add a new task"
+    value={todoInput}
+    onChange={(e) => {
+      setTodoInput(e.target.value);
+      if (showError) setShowError(false);
+    }}></textarea>
+     
+  {/* <input
     type="text"
+   
     className="form-input px-4 py-2 border rounded"
     placeholder="Add a new task"
     value={todoInput}
@@ -54,8 +64,7 @@ const TodoList = () => {
       setTodoInput(e.target.value);
       if (showError) setShowError(false);
     }}
-    onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
-  />
+  /> */}
   <button
     className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
     onClick={handleAddTodo}
@@ -65,13 +74,13 @@ const TodoList = () => {
 </div>
 {showError && <p className="text-red-500">Please enter a task description.</p>}
 
-      <ul className="space-y-2">
+      <ul className="space-y-2 flex flex-col flex-nowrap">
         {todos.map((todo, index) => (
-          <li key={index} className={`flex justify-between items-center px-4 py-2 rounded ${todo.completed ? 'bg-green-200' : 'bg-gray-100'}`}>
-            <span className={`${todo.completed ? 'line-through' : ''}`}>
-              {format(new Date(), 'PP')} - {todo.description}
-            </span>
-            <div className="flex items-center">
+         <li key={index} className={`flex flex-col md:flex-row justify-between items-start md:items-center  first-letter:first-line:     px-4 py-2 rounded ${todo.completed ? 'bg-green-200' : 'bg-gray-100'} `}>
+         <span className={`flex-1 ${todo.completed ? 'line-through' : ''} text-sm md:text-base mb-2 md:mb-0`}>
+           {format(new Date(), 'PP')} - {todo.description}
+         </span>
+            <div className="flex ">
               <button className="mx-1 px-2 py-1 bg-yellow-500 text-white rounded" onClick={() => handleEditTodo(index)}>
                 Edit
               </button>

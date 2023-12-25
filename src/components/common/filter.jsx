@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
  import  { useState } from "react";
 import Datefilter from "./Date filter button";
 import SelectBox from "./SelectBox";
@@ -76,7 +77,7 @@ const dropdownData = [
 ];
 
 
-function Filter() {
+function Filter({ setFilterOpen}) {
   const [selectedDateRange, setSelectedDateRange] = useState("");
   const [ageModalOpen, setAgeModalOpen] = useState(false);
   const [ageRange, setAgeRange] = useState({ startAge: '', endAge: '' });
@@ -147,6 +148,9 @@ function Filter() {
               </Button>
               <Button onClick={formik.handleReset} variant="outlined" color="secondary">
                 Reset
+              </Button>
+              <Button onClick={()=>setFilterOpen(false)} variant="contained" color="error">
+                Close
               </Button>
             </div>
           </Grid>

@@ -21,7 +21,7 @@ const ProfileInfo = ({ Profile, Name, Data , NameColor="text-[#1F384C]"}) => {
           alt="user photo"
         />
         <h1 className={`${NameColor} text-lg hidden   sm:inline  font-Poppins font-normal `}>{Name}</h1>
-        <div className="sm:ms-3 p-1 h-full rounded-md bg-white ">
+        <div className="sm:ms-3 p-1 h-full rounded-md text-black bg-white ">
         <svg
           className="w-3 h-3  "
           aria-hidden="true"

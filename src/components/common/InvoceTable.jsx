@@ -207,9 +207,9 @@ const DataTable = ({
       {setFilterOpen && (
         <button
           onClick={() => setFilterOpen(!openFilter)}
-          className="bg-blue-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute left-0 top-0"
+          className={`${!openFilter ? "bg-blue-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute left-0 top-0 " : "hidden"}  `}
         >
-          Filter
+         Filter
         </button>
       )}
       <table

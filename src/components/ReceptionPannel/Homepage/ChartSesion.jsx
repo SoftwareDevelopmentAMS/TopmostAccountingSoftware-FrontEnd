@@ -74,7 +74,7 @@ const ChartSesion = () => {
       </div>
       {/* Line Chart */}
       <div className="p-4 bg-white rounded-lg h-fit shadow-md">
-        <h2 className="text-lg font-bold mb-2">Line Chart</h2>
+        <h2 className="text-lg font-bold mb-2">Pie Chart</h2>
         <PieChart
       series={[
         {
@@ -97,14 +97,13 @@ const ChartSesion = () => {
         },
       ]}
       height={400}
-      width={600}
     />
 
       </div>
 
       {/* Doughnut Chart */}
       <div className="p-4 bg-white rounded-lg shadow-md">
-        <h2 className="text-lg font-bold mb-2">Doughnut Chart</h2>
+        <h2 className="text-lg font-bold mb-2">Line Chart</h2>
         <LineChart
       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
       series={[

@@ -65,6 +65,8 @@ const PurchaseInvoiceList = () => {
     <div className="m-auto w-auto h-screen ">
      <div className={`m-5 p-4  bg-white ${filterVisible ? "hidden" : "block"}`}>
      <FilterComponent 
+    openFilter={filterVisible}
+    setFilterOpen={setFilterVisible}
     dateOptions={dateOptions}
     doctorOptions={doctorOptions}
     procedureOptions={procedureOptions}

@@ -63,6 +63,8 @@ const PatiantsInvoiceList = () => {
     <div className="m-auto w-auto h-screen ">
     <div className={`m-5 p-4  bg-white ${openFilter ? "block" : "hidden" } `}>
      <FilterComponent 
+     openFilter={openFilter} 
+     setFilterOpen={setFilterOpen} 
     dateOptions={dateOptions}
     doctorOptions={doctorOptions}
     procedureOptions={procedureOptions}

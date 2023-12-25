@@ -3,7 +3,7 @@ import { useState } from "react";
 import DynamicForm from "./AddTypeForm";
 
 
-const AddOptions = ({buttonlist}) => {
+const   AddOptions = ({buttonlist}) => {
   const [selectedButton, setSelectedButton] = useState(buttonlist[0]);
 
   const handleButtonClick = (button) => {
@@ -14,10 +14,9 @@ const AddOptions = ({buttonlist}) => {
     // Handle form submission logic here
     console.log("Form submitted with values:", values);
   };
-
   return (
     <div className="m-auto w-auto">
-      <div className="topbar m-5 p-4 bg-white flex flex-wrap justify-center">
+      <div className={` ${(buttonlist.length > 1) ? " topbar m-5 p-4 bg-white flex  flex-wrap justify-center " : "hidden" }`}>
         {buttonlist.map((button, i) =>
           selectedButton?.name === button.name ? (
             <button

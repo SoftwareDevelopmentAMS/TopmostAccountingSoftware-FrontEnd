@@ -11,12 +11,12 @@ const ListofOptions = ({tableData}) => {
   };
   return (
     <div className="m-auto w-auto">
-      <div className="topbar m-5 p-4 bg-white flex flex-wrap justify-center">
+      <div className={` ${(tableData.length > 1) ? "  topbar m-5 p-4 bg-white flex flex-wrap justify-center  ": "hidden " }`} >
         {tableData.map((item, i) => (
           <button
             key={i + item.name}
             onClick={() => handleTableClick(item.name)}
-            className={`${selectedTable == item.name ? 'bg-slate-300':''} shadow-xl w-40 m-2 px-4 py-2 text-[14px] font-Poppins border border-[##0000001F] rounded-lg `}
+            className={`${selectedTable == item.name ? 'bg-slate-300':''} shadow-xl w-40 m-2 px-4 py-2 text-[14px] font-Poppins border border-[##0000001F] rounded-lg  `}
           >
             {item.name}
           </button>
