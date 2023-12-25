@@ -52,7 +52,7 @@ const paymentMethodOptions = [
 
 
 const PurchaseInvoiceList = () => {
-    const [filterVisible,setFilterVisible]=useState(true)
+    const [filterVisible,setFilterVisible]=useState(false)
     const [selectedFields, setSelectedFields] = useState([
         "id",
         "enteredBy",
@@ -63,7 +63,7 @@ const PurchaseInvoiceList = () => {
       ]);
   return (
     <div className="m-auto w-auto h-screen ">
-     <div className={`m-5 p-4  bg-white ${filterVisible ? "hidden" : "block"}`}>
+     <div className={`m-5 p-4  bg-white ${!filterVisible ? "hidden" : "block"}`}>
      <FilterComponent 
     openFilter={filterVisible}
     setFilterOpen={setFilterVisible}
