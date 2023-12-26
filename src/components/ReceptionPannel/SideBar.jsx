@@ -319,7 +319,7 @@ export default function MultiLevelSidebar({
             {MenuList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                  className={` rounded-xl `}
+                  className={` rounded-lg `}
                   key={list.name + i}
                   open={menuOpen === i + 1}
                   icon={
@@ -398,7 +398,7 @@ export default function MultiLevelSidebar({
               ) : (
                 <Link to={list.link} key={list.name}>
                   <Accordion
-                    className={`mb-2 group rounded-xl `}
+                    className={`mb-2 group rounded-lg `}
                     open={menuOpen === i + 1}
                     onClick={() => handleMenuOpen(i + 1)}
                   >
@@ -455,7 +455,7 @@ export default function MultiLevelSidebar({
             {OthersList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                  className={` rounded-xl `}
+                  className={` rounded-lg `}
                   key={list.name + i}
                   open={othersOpen === i + 1}
                   icon={
@@ -534,7 +534,7 @@ export default function MultiLevelSidebar({
               ) : (
                 <Link to={list.link} key={list.name}>
                   <Accordion
-                    className={`mb-2 group rounded-xl `}
+                    className={`mb-2 group rounded-lg `}
                     open={othersOpen === i + 1}
                     onClick={() => handleOthersOpen(i + 1)}
                   >

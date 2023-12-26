@@ -303,7 +303,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
         <div className="scrollingstyle overflow-y-auto ">
           <div className={`${isSidebarOpen && "pl-5"}   mt-10`}>
             <Typography
-              variant="h5"
+              variant="h6"
               color="blue-gray"
               className={`${
                 !isSidebarOpen
@@ -321,7 +321,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
             {MenuList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                  className={` rounded-xl `}
+                  className={` rounded-lg `}
                   key={list.name + i}
                   open={menuOpen === i + 1}
                   icon={
@@ -400,7 +400,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
               ) : (
                 <Link to={list.link} key={list.name}>
                   <Accordion
-                    className={`mb-2 group rounded-xl `}
+                    className={`mb-2 group rounded-lg `}
                     open={menuOpen === i + 1}
                     onClick={() => handleMenuOpen(i + 1)}
                   >
@@ -439,7 +439,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
 
           <div className={`${isSidebarOpen && "pl-4"}  mt-5`}>
             <Typography
-              variant="h5"
+              variant="h6"
               color="blue-gray"
               className={`${
                 !isSidebarOpen
@@ -457,7 +457,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
             {OthersList.map((list, i) => {
               return list.dropdowns ? (
                 <Accordion
-                  className={` rounded-xl `}
+                  className={` rounded-lg `}
                   key={list.name + i}
                   open={othersOpen === i + 1}
                   icon={
@@ -536,7 +536,7 @@ const SideBar = ({ isSidebarOpen, handleToggleSidebar }) => {
               ) : (
                 <Link to={list.link} key={list.name}>
                   <Accordion
-                    className={`mb-2 group rounded-xl `}
+                    className={`mb-2 group rounded-lg `}
                     open={othersOpen === i + 1}
                     onClick={() => handleOthersOpen(i + 1)}
                   >

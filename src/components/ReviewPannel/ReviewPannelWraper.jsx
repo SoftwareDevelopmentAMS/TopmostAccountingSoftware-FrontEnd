@@ -16,12 +16,12 @@ const ReviewPannelWraper = () => {
         <SideBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
   
         {/* Main content area */}
-        <div className="flex flex-col w-full bg-NavBar">
+        <div className="flex flex-col w-full  ">
           {/* Navbar */}
           <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
   
           {/* Outlet and main content */}
-          <main className={`flex-1 overflow-y-auto transition-all duration-300  ease-in-out      `}>
+          <main className={`flex-1 overflow-y-auto transition-all duration-300  ease-in-out   bg-background   `}>
             <Outlet />
           </main>
         </div>

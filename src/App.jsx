@@ -59,7 +59,7 @@ function App() {
           <Route path="help" element={<Wraper value={"Help"} />} />         
         </Route>
 
-        {/* Reception Pannel */}
+        {/* Review Pannel */}
         <Route path="review-Pannel" element={<ReviewPannelWraper />}>
           <Route index element={<ReviewHome/>}/>
           <Route path="patient-invoice" element={<PatientInvoice />} />
@@ -92,7 +92,7 @@ const Wraper = ({value}) => {
   return (
     <div className="text-2xl uppercase text-center p-10 font-Poppins font-bold">
                 {value}
-              </div>
+     </div>
   )
 }
 
