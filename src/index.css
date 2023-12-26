@@ -13,7 +13,7 @@
  
 :root{
   /* Review Pannel */
-  --color-LogoText:#1b3258;
+  /* --color-LogoText:#1b3258;
   --color-SideBar: #F8F6F4;  
   --color-NavBar: #F8F6F4; 
   --color-NavBarText: #1b3258; 
@@ -21,11 +21,21 @@
   --color-iconHover: #1b3258;
   --color-sidbarText:#1b3258;
   --color-sidbarHead: #374151;
-  --color-background: #f3f4f6; 
-  --color-SelectedNav:  #cbd5e1; 
+  --color-background: #e0e3e9; 
+  --color-SelectedNav:  #cbd5e1;  */
   
-  
-  
+/* Review Panel */
+--color-LogoText: #92410b; 
+--color-SideBar: #515358c5; 
+--color-NavBar: #515358c5; 
+--color-NavBarText: #336e7b; 
+--color-iconColor:#94390b;
+--color-iconHover: #fff; 
+--color-sidbarText: #ffffff;
+--color-sidbarHead: #95a5a6;
+--color-background: #7173774d; 
+--color-SelectedNav: #f7f7f744;
+
   
   
   
@@ -38,9 +48,11 @@
   --color-ReceptioniconHover: #374151;
   --color-ReceptionsidbarText:#374151;
   --color-ReceptionsidbarHead: #374151;
-  --color-Receptionbackground: #e0e4ee; 
+  --color-Receptionbackground: #82948721; 
   --color-ReceptionSelectedNav:  #cbd5e1; 
-  
+
+ 
+
 
 }
 

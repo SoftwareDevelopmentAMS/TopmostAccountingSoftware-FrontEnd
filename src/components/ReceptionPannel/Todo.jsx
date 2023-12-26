@@ -46,7 +46,7 @@ const TodoList = () => {
   return (
     <div className="p-4 w-1/2 min-h-80 h-80 shadow-md border">
       <div className="flex justify-between items-center mb-4">
-      <textarea rows="1" cols="30" name="text"  className="form-input px-4 py-2 border rounded"
+      <textarea rows="1" cols="30" name="text"  className="form-input px-4 py-2 border rounded-lg outline-none" 
     placeholder="Add a new task"
     value={todoInput}
     onChange={(e) => {
