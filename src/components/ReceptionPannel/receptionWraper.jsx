@@ -11,17 +11,17 @@ const ReceptionPannelWraper = () => {
   };
 
   return (
-    <div className="dark:bg-boxdark-2 dark:text-bodydark flex h-screen  overflow-hidden">
+    <div className="dark:bg-boxdark-2 dark:text-bodydark flex h-screen w-full overflow-hidden  ">
       {/* Sidebar */}
       <SideBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
 
       {/* Main content area */}
-      <div className="flex flex-col w-full  bg-Receptionbackground ">
+      <div className="flex flex-col w-full bg-ReceptionNavBar">
         {/* Navbar */}
         <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
 
         {/* Outlet and main content */}
-        <main className={`flex-1 overflow-y-auto transition-all duration-300 ease-in-out  bg-Receptionbackground`}>
+        <main className={`flex-1  grid grid-cols-1 overflow-y-scroll overflow-x-hidden  transition-all duration-300 ease-in-out  bg-Receptionbackground`}>
           <Outlet />
         </main>
       </div>

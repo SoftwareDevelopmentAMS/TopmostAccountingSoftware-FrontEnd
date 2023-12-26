@@ -74,8 +74,7 @@ function CustomTable({ columns, data, rowsPerPageOptions = [5, 10, 25, -1] }) {
   
 
   return (
-    <div className="container mx-auto mt-4">
-      <input type="date" />
+    <div className="grid grid-cols-1 mx-auto mt-4 overflow-x-auto"> 
       <table className="min-w-full border bg-white">
         <thead>
           <tr>

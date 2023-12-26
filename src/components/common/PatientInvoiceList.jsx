@@ -16,12 +16,11 @@ const PatientInvoiceList = () => {
 
   return (
 
-    <div className="m-auto w-auto h-screen ">
-      <div className="topbar m-5  p-4  bg-white  flex  flex-wrap justify-center">
+     
+      <div className="topbar m-5  p-4  bg-white   ">
         <h2 className="text-xl font-Inter font-bold uppercase tracking-normal"> Patient invoicelist</h2>
       <InvoiceTable  data={patientInvoiceList} setSelectedFields={setSelectedFields} selectedFields={selectedFields}/>
       </div>
-    </div>
    
   )
 }
