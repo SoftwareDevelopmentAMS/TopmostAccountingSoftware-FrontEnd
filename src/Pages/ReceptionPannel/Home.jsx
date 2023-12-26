@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="p-4 lg:p-8 bg-Receptionbackground ">
       {/* Company info card */}
-      <CompanyInfo companyName={"Topmost Group "} />
+      <CompanyInfo companyName={"Topmost Group  "} type={" Reception Pannel"} />
       {/* Weather and stats container */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2  ">
         {/* Weather Card - Assuming it takes a color prop for background */}

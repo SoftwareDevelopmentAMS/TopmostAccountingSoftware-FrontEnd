@@ -10,6 +10,11 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import InvoiceLogo from "../../assets/NavBar/logo 1.png";
 import { formatDate } from "../../commonFn/Datefn";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const invoiceData = {
   companyName: "TOPMOST KALAMASSERY",
@@ -197,7 +202,7 @@ const DataTable = ({
   };
 
   return (
-    <div className="container mx-auto p-4 pt-20 mb-16 relative  overflow-x-auto">
+    <div className=" mx-auto p-4 pt-20 mb-16 grid grid-cols-1 relative ">
       <button
         onClick={printTable}
         className="bg-green-400 px-4 py-2 rounded-lg text-white text-xl uppercase m-2 absolute right-0 top-0"
@@ -212,78 +217,56 @@ const DataTable = ({
          Filter
         </button>
       )}
+      
+      <div className="p-1 overflow-x-auto">
       <table
-        id="print-table"
-        ref={tableRef}
-        className="min-w-full bg-white border border-gray-300 shadow-md rounded overflow-x-scroll"
-      >
-        <thead>
-          <tr>
-            {selectedFields.map((field) => (
-              <th
-                key={field}
-                className="text-center py-2 px-4 border-b truncate"
-              >
-                {field}
-              </th>
-            ))}
-            <th id="td" className="text-center py-2 px-4 border-b">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, i) => (
-            <tr
-              key={i}
-              onClick={() => handleRowClick(row)}
-              className="cursor-pointer hover:bg-gray-100 transition duration-150"
-            >
-              {selectedFields.map((field) => (
-                <td key={field} className="text-center py-2 px-4 border-b">
-                  {row[field]}
-                </td>
-              ))}
-              <td
-                id="actioncolumn"
-                className="text-center py-2 px-4 border-b space-x-2 font-bold text-white "
-              >
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleEdit(row.InvoiceId);
-                  }}
-                  className="bg-[#007bff] p-3 hover:bg-[#3a6ba0]   rounded-lg"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDelete(row.InvoiceId);
-                  }}
-                  className="bg-[#dc3545] p-3 hover:bg-[#ad424d] rounded-lg"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleHide(row.InvoiceId);
-                  }}
-                  className="bg-[#6c757d] p-3 hover:bg-[#5a6d7e]  rounded-lg"
-                >
-                  Hide
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+  id="print-table"
+  ref={tableRef}
+  className="bg-white border   border-gray-300  shadow-md rounded "
+>
+  <thead>
+    <tr>
+      {selectedFields.map((field) => (
+        <th key={field} className="text-center py-2 px-4 border-b text-sm lg:text-base">
+          {field}
+        </th>
+      ))}
+      <th id="td" className="text-center py-2 px-4 border-b text-sm lg:text-base">
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {data.map((row, i) => (
+      <tr key={i} onClick={() => handleRowClick(row)} className="cursor-pointer hover:bg-gray-100 transition duration-150">
+        {selectedFields.map((field) => (
+          <td key={field} className="text-center py-2 px-4 border-b text-sm lg:text-base">
+            {row[field]}
+          </td>
+        ))}
+        <td id="actioncolumn" className="text-center py-2 px-4 border-b space-x-2 font-bold">
+          {/* Consider replacing text with icons for smaller screens */}
+          <button onClick={(e) => { e.stopPropagation(); handleEdit(row.InvoiceId); }} className="bg-[#007bff] p-2 lg:p-3 hover:bg-[#3a6ba0] rounded-lg">
+          <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); handleDelete(row.InvoiceId); }} className="bg-[#dc3545] p-2 lg:p-3 hover:bg-[#ad424d] rounded-lg">
+          <FontAwesomeIcon icon={faTrashAlt} />
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); handleHide(row.InvoiceId); }} className="bg-[#6c757d] p-2 lg:p-3 hover:bg-[#5a6d7e] rounded-lg">
+          <FontAwesomeIcon icon={faEyeSlash} />
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+      </div>
+
 
       {/* Modal for detailed view */}
       {showModal && (
         <div className=" selectcolumn fixed inset-0 flex  items-center justify-center">
+          
           <div
             className="bg-black bg-opacity-50 absolute inset-0"
             onClick={() => {
@@ -293,6 +276,9 @@ const DataTable = ({
           ></div>
           <div className="relative bg-white p-4  mx-auto z-10 rounded shadow-md print:w-full print:h-full h-[90%] w-[50%] ">
             {/* Display detailed view content */}
+            <button onClick={() => window.print()} className="print:hidden    text-black  absolute right-8 border px-3 bg-slate-400 py-1 bottom-5 font-Inter rounded-lg font-semibold">
+            <FontAwesomeIcon icon={faPrint}  /> Print
+            </button>
             {selectedRow && (
               <div className="p-5 bg-white">
                 {/* Header with Logo and Company Address */}
@@ -378,18 +364,17 @@ const DataTable = ({
                       {invoiceData.amountToBePaid}
                     </p>
                   </div>
+                
                 </div>
               </div>
             )}
-            <button onClick={() => window.print()} className="print:hidden absolute bottom-10 right-10 bg-blue-500 px-4 py-4 text-white font-Inter rounded-lg font-semibold">
-              Print Invoice
-            </button>
+            
           </div>
         </div>
       )}
 
       {/* Field selection controls */}
-      <div className="mt-4 pt-4 z-0" id="selectcolumn">
+      <div className="mt-4 pt-4 " id="selectcolumn">
         <h3>Select Fields:</h3>
         {Object.keys(data[0]).map((field) => (
           <FormControlLabel
