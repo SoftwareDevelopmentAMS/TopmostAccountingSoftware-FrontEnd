@@ -21,7 +21,7 @@ const ReceptionPannelWraper = () => {
         <NavBar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
 
         {/* Outlet and main content */}
-        <main className={`flex-1  grid grid-cols-1 overflow-y-scroll overflow-x-hidden  transition-all duration-300 ease-in-out  bg-Receptionbackground`}>
+        <main className={`flex-1  overflow-y-scroll overflow-x-hidden  transition-all duration-300 ease-in-out  bg-Receptionbackground`}>
           <Outlet />
         </main>
       </div>
