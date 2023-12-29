@@ -5,6 +5,7 @@ import {
   TextField,
   Button,
   MenuItem,
+  Grid,
 } from "@mui/material";
 import { useFormik } from "formik";
 import { useEffect } from "react";
@@ -70,10 +71,10 @@ const DynamicForm = ({ formFields, onSubmit, value }) => {
   const handleReset = (formik) => {
     formik.resetForm({});
   };
-
+  const maxwidth = formFields.fields.length === 1 ? "sm" : "md";
   return (
     <Container
-      maxWidth="sm"
+      maxWidth={maxwidth}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -81,6 +82,7 @@ const DynamicForm = ({ formFields, onSubmit, value }) => {
         mt: 5,
         border: "1px",
       }}
+      
     >
       <Typography variant="h4" gutterBottom>
         {value?.name}
@@ -88,81 +90,86 @@ const DynamicForm = ({ formFields, onSubmit, value }) => {
       <Typography variant="subtitle1" color="textSecondary" gutterBottom>
         Form
       </Typography>
-      <form onSubmit={formik.handleSubmit} style={{ width: "100%" }}>
-        {formFields?.fields?.map((field, index) => (
-          <div key={index} style={{ marginBottom: "1rem" }}>
-            {field.type === "text" && (
-              <TextField
-                id={field.name}
-                name={field.name}
-                label={field.label}
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={formik.values[field.name] || ""}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched[field.name] &&
-                  Boolean(formik.errors[field.name])
-                }
-                helperText={
-                  formik.touched[field.name] && formik.errors[field.name]
-                }
-              />
-            )}
-            {field.type === "number" && (
-              <TextField
-                id={field.name}
-                name={field.name}
-                label={field.label}
-                type="number"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={formik.values[field.name] || ""}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched[field.name] &&
-                  Boolean(formik.errors[field.name])
-                }
-                helperText={
-                  formik.touched[field.name] && formik.errors[field.name]
-                }
-              />
-            )}
-            {field.type === "dropdown" && (
-              <TextField
-                id={field.name}
-                name={field.name}
-                select
-                label={field.label}
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={formik.values[field.name] || ""}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched[field.name] &&
-                  Boolean(formik.errors[field.name])
-                }
-                helperText={
-                  formik.touched[field.name] && formik.errors[field.name]
-                }
-              >
-                {/* Assume a list of options is provided in field.options */}
-                {field?.options?.map((option, optionIndex) => (
-                  <MenuItem key={optionIndex} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </TextField>
-            )}
-          </div>
+      <form onSubmit={formik.handleSubmit} style={{ width: "100%" }} >
+        <Grid container spacing={2}>
+          {formFields?.fields?.map((field, index) =>{
+            const gridItemSize = formFields.fields.length === 1 ? 12 : 6;
+return(
+  <Grid item xs={gridItemSize} key={index}>
+    {field.type === "text" && (
+      <TextField
+        id={field.name}
+        name={field.name}
+        label={field.label}
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={formik.values[field.name] || ""}
+        onChange={formik.handleChange}
+        error={
+          formik.touched[field.name] &&
+          Boolean(formik.errors[field.name])
+        }
+        helperText={
+          formik.touched[field.name] && formik.errors[field.name]
+        }
+      />
+    )}
+    {field.type === "number" && (
+      <TextField
+        id={field.name}
+        name={field.name}
+        label={field.label}
+        type="number"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={formik.values[field.name] || ""}
+        onChange={formik.handleChange}
+        error={
+          formik.touched[field.name] &&
+          Boolean(formik.errors[field.name])
+        }
+        helperText={
+          formik.touched[field.name] && formik.errors[field.name]
+        }
+      />
+    )}
+    {field.type === "dropdown" && (
+      <TextField
+        id={field.name}
+        name={field.name}
+        select
+        label={field.label}
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        value={formik.values[field.name] || ""}
+        onChange={formik.handleChange}
+        error={
+          formik.touched[field.name] &&
+          Boolean(formik.errors[field.name])
+        }
+        helperText={
+          formik.touched[field.name] && formik.errors[field.name]
+        }
+      >
+        {field?.options?.map((option, optionIndex) => (
+          <MenuItem key={optionIndex} value={option}>
+            {option}
+          </MenuItem>
         ))}
+      </TextField>
+    )}
+  </Grid>
+)
+
+          } )}
+        </Grid>
         <div
           style={{
             display: "flex",
-            justifyContent: "end",
+            justifyContent: "center",
             marginTop: "1rem",
             gap: "1rem",
           }}
