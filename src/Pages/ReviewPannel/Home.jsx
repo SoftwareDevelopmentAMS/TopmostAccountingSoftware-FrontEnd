@@ -24,7 +24,7 @@ const Dashboard = () => {
 
         {/* Stats Boxes */}
         <div className="flex  flex-grow gap-4 my-auto md:col-span-2 xl:col-span-1 ">
-          <div className="flex  flex-col gap-4 flex-grow">
+          <div className="flex  flex-col gap-4 flex-grow ">
             <StatsBox
               title="Today's Bookings"
               value="4006"

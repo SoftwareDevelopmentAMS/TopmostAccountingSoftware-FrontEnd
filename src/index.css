@@ -10,6 +10,15 @@
        width:8px;}
   }
 
+  .scrollingNewstyle{
+    &::-webkit-scrollbar {
+       width:8px;}
+    &::-webkit-scrollbar-thumb {
+        background: #5906f3; }
+    
+
+}
+
  
 :root{
   /* Review Pannel */
@@ -25,19 +34,16 @@
   --color-SelectedNav:  #cbd5e1;  */
   
 /* Review Panel */
---color-LogoText: #92410b; 
---color-SideBar: #515358c5; 
---color-NavBar: #515358c5; 
---color-NavBarText: #336e7b; 
---color-iconColor:#94390b;
---color-iconHover: #fff; 
---color-sidbarText: #ffffff;
---color-sidbarHead: #95a5a6;
---color-background: #7173774d; 
---color-SelectedNav: #f7f7f744;
-
-  
-  
+--color-LogoText: #92410b;
+  --color-SideBar: #80828ac5;
+  --color-NavBar: #80828ac5;
+  --color-NavBarText: #336e7b;
+  --color-iconColor: #94390b;
+  --color-iconHover: #fff;
+  --color-sidbarText: #ffffff;
+  --color-sidbarHead: #95a5a6;
+  --color-background: #3634346b;
+  --color-SelectedNav: #f7f7f744;
   
   /* Reception Pannel */
   --color-ReceptionLogoText:#ee7203;
