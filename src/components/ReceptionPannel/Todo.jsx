@@ -43,29 +43,19 @@ const TodoList = () => {
     setTodos(updatedTodos);
   };
 
-  return (
-    <div className="p-4 w-full md:w-1/2 min-h-80 h-80   shadow-xl border">
+  return (  
+    <div className="p-4    h-96   rounded-xl shadow-xl bg-blue-400 border">
+       <div className=''>
        <h2 className="text-lg font-bold mb-2"> Task Reminder </h2>
-      <div className="flex justify-between items-center mb-4">
-      <textarea   name="text" className="form-input w-[75%]  px-4  py-2 border rounded-lg outline-none" 
+       </div>
+      <div className="flex justify-between  items-center mb-4  ">
+      <textarea  rows={1} name="text" className="form-input w-[75%]  px-4 py-2 border rounded-lg outline-none" 
     placeholder="Add a new task"
     value={todoInput}
     onChange={(e) => {
       setTodoInput(e.target.value);
       if (showError) setShowError(false);
     }}></textarea>
-     
-  {/* <input
-    type="text"
-   
-    className="form-input px-4 py-2 border rounded"
-    placeholder="Add a new task"
-    value={todoInput}
-    onChange={(e) => {
-      setTodoInput(e.target.value);
-      if (showError) setShowError(false);
-    }}
-  /> */}
   <button
     className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
     onClick={handleAddTodo}
@@ -75,7 +65,8 @@ const TodoList = () => {
 </div>
 {showError && <p className="text-red-500">Please enter a task description.</p>}
 
-      <ul className="space-y-2 flex flex-col flex-nowrap">
+      <div className='h-[16.5rem] scrollingNewstyle overflow-auto  rounded-lg'>
+      <ul className="space-y-2 flex flex-col flex-nowrap  ">
         {todos.map((todo, index) => (
          <li key={index} className={`flex flex-col md:flex-row justify-between items-start md:items-center  first-letter:first-line:     px-4 py-2 rounded ${todo.completed ? 'bg-green-200' : 'bg-gray-100'} `}>
          <span className={`flex-1 ${todo.completed ? 'line-through' : ''} text-sm md:text-base mb-2 md:mb-0`}>
@@ -95,6 +86,7 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };

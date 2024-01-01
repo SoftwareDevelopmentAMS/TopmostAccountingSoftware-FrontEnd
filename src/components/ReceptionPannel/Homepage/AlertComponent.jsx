@@ -51,7 +51,7 @@ const AlertComponent = () => {
   };
 
   return (
-    <div className="overflow-auto h-72 scrollingNewstyle rounded-b-lg ">
+    <div className="overflow-auto h-96 scrollingNewstyle rounded-b-lg ">
       {alerts?.map((alert, index) => (
         <div key={index} className={`border-l-4 p-4 my-2 ${getAlertClass(alert.type)} `}>
           <p>{alert.msg}</p>

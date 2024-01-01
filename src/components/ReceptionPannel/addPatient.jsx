@@ -1,31 +1,26 @@
 // InvoiceForm.js
 import { useFormik } from "formik";
-import TextFieldInput from "../../common/inputbox";
-import SelectBox from "../../common/SelectBox";
+import TextFieldInput from "../common/inputbox";
+import SelectBox from "../common/SelectBox";
 import { Grid } from "@mui/material";
-import useToast from "../../../hooks/useToast";
+import useToast from "../../hooks/useToast";
 
 
-const formFields = [
-  { label: "Invoice ID", name: "invoiceId", type: "text", },
+const formFields = [  
   { label: "Entered by", name: "Entered by", type: "text", },
   { label: "Name", name: "name", type: "text" },
+  { label: "Phone Number", name: "phoneNumber", type: "text" },
+  { label: "Email", name: "email", type: "email" },
   { label: "Age", name: "age", type: "number" },
   { label: "Address", name: "address", type: "text" },
-  { label: "Gender",  name: "gender", type: "dropdown", options: ["Male", "Female", "Other"] },
-  { label: "Doctor",  name: "doctor", type: "dropdown", options: ["Dr. Smith", "Dr. Johnson", "Dr. Miller"] },
-  { label: "Dept Type", name: "deptType", type: "dropdown", options: ["Cardiology", "Orthopedics", "Neurology"] },
-  { label: "Visitor Type", name: "visitorType", type: "dropdown", options: ["Regular", "Emergency", "Scheduled"]},
-  { label: "Patient Type", name: "patientType", type: "dropdown", options: ["Inpatient", "Outpatient", "Emergency"]},
-  { label: "Procedure Type", name: "procedureType", type: "dropdown", options: ["Type A", "Type B", "Type C"] },
-  { label: "Sales Amount", name: "salesAmount", type: "number" },
-  { label: "Procedure Amount", name: "procedureAmount", type: "number" },
-  { label: "Amount Method", name: "amountMethod", type: "dropdown", options: ["Cash", "Credit Card", "Insurance"] },
-  { label: "Total Amount", name: "totalAmount", type: "number",   },
+  { label: "Gender", name: "gender", type: "dropdown", options: ["Male", "Female", "Other"] },
+  { label: "District", name: "district", type: "text" },
+  { label: "State", name: "state", type: "text" },
+  { label: "Pincode", name: "pincode", type: "text" },
   // disabled: true,
 ];
 
-const InvoiceForm = () => {
+const AddPatient = () => {
 
   const showToast = useToast()
   const formik = useFormik({
@@ -78,7 +73,7 @@ const InvoiceForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="w-full mx-auto p-4">
+    <form onSubmit={formik.handleSubmit} className="w-full mx-auto p-4 ">
       <Grid container spacing={2} justifyContent="center">
         {formFields.map((field, i) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={i + field.name}>
@@ -133,4 +128,4 @@ const InvoiceForm = () => {
   );
 };
 
-export default InvoiceForm;
+export default AddPatient;
