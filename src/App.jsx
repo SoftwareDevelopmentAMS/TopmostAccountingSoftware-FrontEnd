@@ -21,6 +21,7 @@ import AddDoc from "./Pages/Add-Doc";
 import DoctorsList from "./Pages/Doctors-List";
 import PurchaseReport from "./Pages/reports/purchase-report-list"
 import PatientReport from "./Pages/reports/patiants-report-list"
+import AddPatient from "./Pages/ReceptionPannel/addPatient";
 
 // Review Pannel
 import ReviewPannelWraper from "./components/ReviewPannel/ReviewPannelWraper";
@@ -44,7 +45,9 @@ function App() {
         {/* Reception Pannel */}
         <Route path="/" element={<ReceptionWraper />}>
           <Route index element={<ReceptionHome/>}/>
+          <Route path="Add-Patient" element={<AddPatient />} />
           <Route path="patient-invoice" element={<PatientInvoice />} />
+          <Route path="Patient-master-list" element={<Wraper value={"Patient List"} />} />
           <Route path="Patient-Invoice-list" element={<PatientInvoiceList />} />
           <Route path="purchase-invoice" element={<PurchaseInvoice />} />
           <Route path="purchase-Invoice-list" element={<PurchaseInvoiceList />} />
